@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private router: Router) {}
-  title = 'Home';
+  title = '';
   showComponent(page: string) {
     if (page !== '') {
       this.title = page;
@@ -20,6 +20,6 @@ export class AppComponent {
   }
   logOut() {
     this.title = 'Login';
-    this.router.navigate(['/Login']);
+    this.router.navigate(['/login']);
   }
 }

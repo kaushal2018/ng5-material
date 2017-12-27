@@ -7,14 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
-  title = 'app';
+  constructor() {}
+  title = 'contact';
   answer: string = '';
   answerDisplay: string = '';
   showSpinner: boolean = false;
   showAnswer() {
     this.showSpinner = true;
-
     setTimeout(() => {
       this.answerDisplay = this.answer;
       this.showSpinner = false;
