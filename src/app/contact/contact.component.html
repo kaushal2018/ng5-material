@@ -1,3 +1,11 @@
-<p>
-  contact works!
-</p>
+<mat-card class="example-card">
+  <mat-form-field>
+    <input matInput [(ngModel)]="answer" placeholder="Who are you?">
+  </mat-form-field>
+  <br>  
+  <button mat-raised-button color="primary" (click)="showAnswer()">Answer me</button>
+  <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+</mat-card>
+<mat-card *ngIf="answerDisplay">
+  <h1>Hi, {{ answerDisplay }}</h1>
+</mat-card>
