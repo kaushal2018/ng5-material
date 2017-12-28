@@ -32,13 +32,18 @@ export class AppComponent {
   }
   title = '';
   showComponent(page: string) {
-    if (page !== '') {
-      this.title = page;
-      this.router.navigate(['/' + page]);
-    }else {
-      this.title = 'Home';
-      this.router.navigate(['']);
-    }
+    this.authService.afAuth.authState.subscribe(
+      (auth) => {
+        if (auth != null) {
+          if (page !== '') {
+            this.title = page;
+            this.router.navigate(['/' + page]);
+          }else {
+            this.title = 'Home';
+            this.router.navigate(['']);
+          }
+        }
+      });
   }
   logOut() {
     this.title = 'Login';
