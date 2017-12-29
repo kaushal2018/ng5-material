@@ -1,6 +1,15 @@
-<div class="container">
-    <div>
-        <h1>Login To Your Account</h1>
-        <button class="btn btn-default" (click)="login()">Login With Google</button>
-    </div>
-</div>
+<mat-card class="example-card">
+    <mat-card-header>
+        <h3>Login To Your Account</h3>
+    </mat-card-header>
+    <hr><br>
+    <mat-card-content>
+        <div class="example-button-row">   
+            <span class="error" *ngIf="error">{{ error }}</span>
+            <button (click)="loginFacebook()" mat-raised-button color="primary">Login With Facebook</button><br><br>
+            <button (click)="loginGoogle()" mat-raised-button color="warn">Login With Google</button><br><br>
+            <button routerLink="/email" mat-raised-button color="accent">Login With Email</button><br><br>
+            <a routerLink="/signup" routerLinkActive="active" mat-button>No account? <strong>Create one here</strong></a>
+        </div>
+    </mat-card-content>
+</mat-card>

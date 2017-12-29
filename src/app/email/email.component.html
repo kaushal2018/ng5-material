@@ -1,0 +1,28 @@
+<br>
+<form #formData='ngForm' (ngSubmit)="loginEmail(formData)">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Email" (ngModel)="email" name="email" [formControl]="emailFormControl" required>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please <strong>enter a valid email</strong> address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" (ngModel)="password" name="password" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+        Please enter a password
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+    <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
+    <a routerLink="/login" mat-raised-button color="primary">Go back</a><br><br>
+    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+    <mat-progress-bar class="example-margin" [style.display]="showSpinner ? 'block' : 'none'" color="primary" mode="indeterminate"></mat-progress-bar>
+  </form>

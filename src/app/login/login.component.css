@@ -1,0 +1,7 @@
+  .example-card, .mat-card {
+    margin: 5% auto;
+    width: 320px;
+    background-color: #18CBD8;
+  }
+  h3{color: #fff;margin: 0 auto;}
+  .example-button-row{text-align: center;}

@@ -1,13 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>NG5 Material: {{ title }}</span>
+    <span>NG5 Material {{ title }}</span>
     <span class="example-spacer"></span>    
-    <button mat-button (click)="showComponent('')">Home</button>
-    <button mat-button (click)="showComponent('About')">About</button>
-    <button mat-button (click)="showComponent('Contact')">Contact</button>
-    <button mat-button (click)="logOut()">Log Out</button>
+    <button mat-button (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
+    <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
+    <button mat-button (click)="showComponent('Contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
+    <button mat-raised-button (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
-<p>Logged ?: {{isLoggedIn}}, {{user_displayName}}, {{user_email}} </p>
+<!--{{user_displayName}}, {{isLoggedIn}}, {{user_email}}-->
 <router-outlet></router-outlet>

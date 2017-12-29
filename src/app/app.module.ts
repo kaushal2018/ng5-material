@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatInputModule, MatProgressBarModule,
+  MatToolbarModule, MatFormFieldModule, MatButtonModule, MatCardModule, MatMenuModule, MatIconModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+// While using formControl, you have to import ReactiveFormsModule to your imports array
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
@@ -16,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { EmailComponent } from './email/email.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -33,6 +39,7 @@ export const firebaseConfig = {
     HomeComponent,
     AboutComponent,
     ContactComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,16 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatProgressBarModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
