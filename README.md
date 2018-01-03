@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Important
 
 1) For firebase run `npm install firebase@4.4.0`.
-2) Please modify the file : node_modules\angularfire2\firebase.app.module.d.ts by commenting the line //firestore: () => firebase.firestore.Firestore;
+2) Please modify the file : node_modules\angularfire2\firebase.app.module.d.ts > `comment the line //firestore: () => firebase.firestore.Firestore;`
