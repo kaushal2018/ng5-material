@@ -26,3 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Important
+
+1) For firebase run `npm install firebase@4.4.0`.
+2) Please modify the file : node_modules\angularfire2\firebase.app.module.d.ts by commenting the line //firestore: () => firebase.firestore.Firestore;
