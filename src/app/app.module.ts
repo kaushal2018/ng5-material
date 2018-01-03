@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { EmailComponent } from './email/email.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -40,6 +41,7 @@ export const firebaseConfig = {
     AboutComponent,
     ContactComponent,
     EmailComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

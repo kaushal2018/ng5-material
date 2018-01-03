@@ -6,7 +6,7 @@
     <button mat-button (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
     <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
     <button mat-button (click)="showComponent('Contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
-    <button mat-raised-button (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
+    <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <!--{{user_displayName}}, {{isLoggedIn}}, {{user_email}}-->
