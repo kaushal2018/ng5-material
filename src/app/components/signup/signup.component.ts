@@ -8,6 +8,7 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent extends UserData implements OnInit {
+  complexForm: FormGroup;
   error: any;
   useridFormControl = new FormControl('', [
     Validators.required
@@ -24,9 +25,24 @@ export class SignupComponent extends UserData implements OnInit {
     Validators.email
   ]);
 
-  constructor() { super(); }
-  addUser(formData) {
+  constructor(fb: FormBuilder) {
+    super();
+    this.complexForm = fb.group({
+      userid: 1003,
+      username: 'kaushal3',
+      email: 'test@intelegencia.com',
+      phone: {
+          landline: '2225772928',
+          mobile: '9873656549',
+      }
+    });
+  }
+  /*addUser(formData) {
     console.log(formData);
+  }*/
+  addUser(form: any): void {
+    console.log('Form Data: ');
+    console.log(form);
   }
   ngOnInit() {
   }

@@ -4,7 +4,7 @@ import {UserModel} from '../../shared/models/user.model';
 export class UserData implements OnInit {
     public myUser: UserModel[] = [
     {
-        id: 1001,
+        userid: 1001,
         username: 'kaushal',
         email: 'kaushal.k@intelegencia.com',
         phone: {
@@ -13,7 +13,7 @@ export class UserData implements OnInit {
         }
     },
     {
-        id: 1002,
+        userid: 1002,
         username: 'kaushalk',
         email: 'krkaushal007@gmail.com',
         phone: {
