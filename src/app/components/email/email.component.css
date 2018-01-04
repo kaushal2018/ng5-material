@@ -4,7 +4,7 @@
   
 .example-margin {
     margin: 0 10px;
-    width: 400px;
+    width: 200px;
 }
 
 .error {
@@ -18,3 +18,6 @@
     color: #ff4081;
 }
 .mat-icon{cursor: pointer;color: #3f51b5;}
+.example-button-row{
+    padding-bottom: 10px;
+}

@@ -20,9 +20,15 @@
         Password is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-    <br><br>
-    <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
-    <a routerLink="/login" mat-raised-button color="primary">Go back</a><br><br>
-    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
-    <mat-progress-bar class="example-margin" [style.display]="showSpinner ? 'block' : 'none'" color="primary" mode="indeterminate"></mat-progress-bar>
+    <div class="example-button-row">
+        <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
+        <a routerLink="/login" mat-raised-button color="primary">Go back</a>
+    </div>
+    <div class="example-button-row">
+        <a routerLink="/signup" routerLinkActive="active" mat-button color="gray">No account? <strong>Create one here</strong></a>
+    </div>
+    <div class="example-button-row">
+        <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+        <mat-progress-bar class="example-margin" [style.display]="showSpinner ? 'block' : 'none'" color="primary" mode="indeterminate"></mat-progress-bar>
+    </div>
   </form>

@@ -25,7 +25,6 @@ export class AppComponent {
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
           console.log('Logged in');
-          this.router.navigate(['']);
         }
       }
     );
@@ -37,7 +36,7 @@ export class AppComponent {
         if (auth != null) {
           if (page !== '') {
             this.title = page;
-            this.router.navigate(['/' + page]);
+            this.router.navigate(['/' + page.toLowerCase()]);
           }else {
             this.title = 'Home';
             this.router.navigate(['']);

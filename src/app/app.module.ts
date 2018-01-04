@@ -17,12 +17,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './providers/auth.service';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { EmailComponent } from './email/email.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { EmailComponent } from './components/email/email.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -42,6 +43,7 @@ export const firebaseConfig = {
     ContactComponent,
     EmailComponent,
     PageNotFoundComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
