@@ -1,40 +1,25 @@
-<form #formData='ngForm' [formGroup]="complexForm" (ngSubmit)="addUser(formData)">
+<form #formData='ngForm' (ngSubmit)="addUser(formData)">
     <mat-form-field>
-        <input matInput type="text" placeholder="UserId" name="userid" [formControl]="useridFormControl" required>
-        <mat-error *ngIf="useridFormControl.hasError('required')">
-          UserId is <strong>required</strong>
-        </mat-error>
+        <input matInput type="text" placeholder="UserId" name="userid" ngModel required>
     </mat-form-field>
     <br>
     <mat-form-field>
-        <input matInput type="text" placeholder="User Name" name="username" [formControl]="usernameFormControl" required>
-        <mat-error *ngIf="usernameFormControl.hasError('required')">
-          Username is <strong>required</strong>
-        </mat-error>
+        <input matInput type="text" placeholder="User Name" name="username" ngModel required>
     </mat-form-field>
     <br>
     <mat-form-field>
-        <input matInput type="text" placeholder="Email" name="email" [formControl]="emailFormControl" required>
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please <strong>enter a valid email</strong> address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput type="text" placeholder="Landline" name="landline">            
+        <input matInput type="email" placeholder="Email" name="email" ngModel required>
     </mat-form-field>
     <br>
-    <mat-form-field>
-        <input matInput type="text" placeholder="Mobile" name="mobile" [formControl]="mobileFormControl" required>
-        <mat-error *ngIf="mobileFormControl.hasError('pattern')">
-            Please <strong>enter a valid mobile</strong> number
-          </mat-error>
-        <mat-error *ngIf="mobileFormControl.hasError('required')">
-          Mobile number is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
+    <div ngModelGroup="phone">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Landline" name="landline" ngModel>            
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Mobile" name="mobile" ngModel required>
+        </mat-form-field>
+    </div>
     <br>
     <div class="example-button-row">
         <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
@@ -43,7 +28,7 @@
 </form>
 <pre>{{formData.value | json}}</pre>
 <ul *ngFor="let user of myUser">
-    <li class="col">{{user.id}}</li>
+    <li class="col">{{user.userid}}</li>
     <li class="col">{{user.username}}</li>
     <li class="col">{{user.email}}</li>
     <li class="col">{{user.phone.landline}}</li>
