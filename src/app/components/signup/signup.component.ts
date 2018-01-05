@@ -10,10 +10,24 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class SignupComponent extends UserData implements OnInit {
   tempUser: UserModel[];
-
-  constructor() {
+  signUpForm: FormGroup;
+  constructor(private fb: FormBuilder) {
     super();
+    this.createForm();
   }
+
+  createForm() {
+    this.signUpForm = this.fb.group({
+      userid: ['', Validators.required ],
+      username: ['', Validators.required ],
+      email: ['', [ Validators.required, Validators.email ]],
+      phone: this.fb.group({
+        landline: ['', Validators.pattern('[0-9]{11}')],
+        mobile: ['', [ Validators.required, Validators.pattern('[0-9]{10}') ]],
+      })
+    });
+  }
+
   addUser(formData: any): void {
     this.tempUser = [
       {
@@ -25,8 +39,11 @@ export class SignupComponent extends UserData implements OnInit {
           mobile: formData.value.phone.mobile
         }
       }];
-      this.myUser.push(this.tempUser[0]);
+      if (formData.valid) {
+        this.myUser.push(this.tempUser[0]);
+      }
   }
+
   ngOnInit() {
   }
 

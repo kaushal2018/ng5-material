@@ -1,17 +1,17 @@
-  <mat-card class="example-card" *ngFor="let user of usersObservable | async">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{user.userName}}</mat-card-title>
-        <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="{{user.photoUrl}}" alt="simply dummy text">
-      <mat-card-content>
-        <p>
-            {{user.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
+<mat-card class="example-card" *ngFor="let user of usersObservable | async">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{user.userName}}</mat-card-title>
+    <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{user.photoUrl}}" alt="simply dummy text">
+  <mat-card-content>
+    <p>
+        {{user.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
