@@ -11,6 +11,7 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 export class SignupComponent extends UserData implements OnInit {
   tempUser: UserModel[];
   signUpForm: FormGroup;
+
   constructor(private fb: FormBuilder) {
     super();
     this.createForm();

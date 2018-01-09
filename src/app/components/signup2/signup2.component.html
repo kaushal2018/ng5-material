@@ -1,0 +1,59 @@
+<h3><i>SignUp Form (Template-driven Form module)</i></h3>
+<form #formData='ngForm' (ngSubmit)="addUser(formData)" novalidate>
+  <mat-form-field>
+      <input matInput type="text" placeholder="UserId" name="userid" [ngModel]="user.userid" #userid="ngModel" required pattern="[0-9]{5}">
+      <mat-error *ngIf="userid.errors?.required && userid.touched">
+        UserId is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="userid.errors?.pattern && userid.touched">
+        Only <strong>5</strong> characters and <strong>numeric</strong>
+      </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+      <input matInput type="text" placeholder="UserName" name="username" [(ngModel)]="user.username" #username="ngModel" required>
+      <mat-error [hidden]="username.valid || (username.pristine && !formData.submitted)">
+          UserName is <strong>required</strong>
+      </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+      <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="user.email" #email="ngModel" email required>
+      <mat-error *ngIf="email.errors?.required">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="email.hasError('email') && !email.errors?.required">
+        Please <strong>enter a valid email</strong> address
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <div ngModelGroup="phone">
+      <mat-form-field>
+          <input matInput type="text" placeholder="Landline" name="landline" [(ngModel)]="user.phone.landline" #landline="ngModel" minlength="10">
+          <mat-error [hidden]="landline.valid || (landline.pristine && !formData.submitted)">
+                Minimum <strong>10</strong> characters
+          </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <input matInput type="text" placeholder="Mobile" name="mobile" [(ngModel)]="user.phone.mobile" #mobile="ngModel" required minlength="10">
+          <mat-error [hidden]="mobile.valid || (mobile.pristine && !formData.submitted)">
+              Please enter a valid mobile <strong>number</strong>
+          </mat-error>
+      </mat-form-field>    
+  </div>
+  <br>
+  <div class="example-button-row">
+      <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
+      <a routerLink="/login" mat-raised-button color="primary">Go back</a>
+  </div>
+  <pre>Form status: {{formData.status | json}}</pre>
+  <pre>Form value:<br>{{formData.value | json}}</pre>
+</form>
+<ul *ngFor="let user of myUser">
+  <li>{{user.userid}}</li>
+  <li>{{user.username}}</li>
+  <li>{{user.email}}</li>
+  <li>{{user.phone.landline}}</li>
+  <li>{{user.phone.mobile}}</li>
+</ul>

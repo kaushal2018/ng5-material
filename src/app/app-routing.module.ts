@@ -7,6 +7,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { EmailComponent } from './components/email/email.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { Signup2Component } from './components/signup2/signup2.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'Contact', component: ContactComponent },
   { path: 'email', component: EmailComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'signup2', component: Signup2Component },
   { path: '**', component: PageNotFoundComponent }
 ];
 

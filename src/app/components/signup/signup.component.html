@@ -1,5 +1,6 @@
-<h3><i>SignUp Form</i></h3>
-<form #formData='ngForm' (ngSubmit)="addUser(formData)" [formGroup]="signUpForm" novalidate>
+<h3><i>SignUp Form (ReactiveFormsModule)</i></h3>
+<!--<p appHighlight [highlightColor]="orange">Highlight me!</p>-->
+<form #formData='ngForm' (ngSubmit)="addUser(formData)" [formGroup]="signUpForm">
     <mat-form-field>
         <input matInput type="text" placeholder="UserId*" name="userid" formControlName="userid">
         <mat-error *ngIf="signUpForm.get('userid').hasError('required')">
@@ -28,14 +29,14 @@
         <mat-form-field>
             <input matInput type="text" placeholder="Landline" name="landline" formControlName="landline">
             <mat-error *ngIf="signUpForm.get('phone.landline').hasError('pattern')">
-                Please <strong>enter a valid landline</strong> number
+                Please enter a valid landline<strong> number</strong>
             </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field>
             <input matInput type="text" placeholder="Mobile*" name="mobile" formControlName="mobile">
             <mat-error *ngIf="signUpForm.get('phone.mobile').hasError('pattern') && !signUpForm.get('phone.mobile').hasError('required')">
-                Please <strong>enter a valid mobile</strong> number
+                Please enter a valid mobile <strong>number</strong>
             </mat-error>
             <mat-error *ngIf="signUpForm.get('phone.mobile').hasError('required')">
                 Mobile is <strong>required</strong>
@@ -46,6 +47,7 @@
     <div class="example-button-row">
         <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
         <a routerLink="/login" mat-raised-button color="primary">Go back</a>
+        <a routerLink="/signup2" mat-raised-button color="primary">SignUp Form (Template-driven)</a>
     </div>
     <pre>Form status: {{signUpForm.status | json}}</pre>
     <pre>Form value:<br>{{signUpForm.value | json}}</pre>

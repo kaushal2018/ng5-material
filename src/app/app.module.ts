@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './providers/auth.service';
@@ -24,6 +24,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { EmailComponent } from './components/email/email.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { Signup2Component } from './components/signup2/signup2.component';
+// import { HighlightDirective } from './highlight.directive';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -43,7 +45,9 @@ export const firebaseConfig = {
     ContactComponent,
     EmailComponent,
     PageNotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    Signup2Component,
+    // HighlightDirective
   ],
   imports: [
     BrowserModule,
