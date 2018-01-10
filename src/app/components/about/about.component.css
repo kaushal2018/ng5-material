@@ -3,7 +3,7 @@
     display: inline-grid;
     margin: 10px;
   }
-  
+  .mat-card-content{min-height: 80px;}
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
