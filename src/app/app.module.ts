@@ -25,6 +25,7 @@ import { EmailComponent } from './components/email/email.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
+import { UserdetailComponent } from './components/userdetail/userdetail.component';
 // import { HighlightDirective } from './highlight.directive';
 
 export const firebaseConfig = {
@@ -47,11 +48,11 @@ export const firebaseConfig = {
     PageNotFoundComponent,
     SignupComponent,
     Signup2Component,
+    UserdetailComponent,
     // HighlightDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -66,7 +67,8 @@ export const firebaseConfig = {
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AppRoutingModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

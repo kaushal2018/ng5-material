@@ -8,10 +8,11 @@ import { EmailComponent } from './components/email/email.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
+import { UserdetailComponent } from './components/userdetail/userdetail.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'About', component: AboutComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
@@ -19,11 +20,14 @@ const routes: Routes = [
   { path: 'email', component: EmailComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'signup2', component: Signup2Component },
+  { path: 'userdetail/:id/:username', component: UserdetailComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes
+    // , { enableTracing: true }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

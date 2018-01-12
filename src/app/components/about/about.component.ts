@@ -10,10 +10,12 @@ import { Observable } from 'rxjs/Observable';
 export class AboutComponent implements OnInit {
   usersObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase) { }
-  ngOnInit() {
-    this.usersObservable = this.getUsers('/users');
-  }
+
   getUsers(listPath): Observable<any[]> {
     return this.db.list(listPath).valueChanges();
+  }
+
+  ngOnInit() {
+    this.usersObservable = this.getUsers('/users');
   }
 }

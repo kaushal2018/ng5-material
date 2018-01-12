@@ -1,10 +1,7 @@
 .example-card, .mat-card {
-    width: 250px;
+    width: 400px;
     display: inline-grid;
-    margin: 10px;
   }
-  .mat-card-content{min-height: 80px;}
-  .mat-card-actions .mat-button{margin: 0;}
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
