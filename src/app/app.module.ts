@@ -26,7 +26,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
-// import { HighlightDirective } from './highlight.directive';
+import { AbcComponent } from './components/abc/abc.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -49,7 +49,7 @@ export const firebaseConfig = {
     SignupComponent,
     Signup2Component,
     UserdetailComponent,
-    // HighlightDirective
+    AbcComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,6 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -66,6 +65,8 @@ export const firebaseConfig = {
     MatMenuModule,
     MatIconModule,
     MatInputModule,
+    // Tip: use FormsModule for template-driven, and ReactiveFormsModule for reactive forms.
+    FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
     AppRoutingModule,

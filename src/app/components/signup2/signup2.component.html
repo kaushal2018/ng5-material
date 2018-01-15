@@ -1,13 +1,21 @@
 <h3><i>SignUp Form (Template-driven Form module)</i></h3>
-<form #formData='ngForm' (ngSubmit)="addUser(formData)" novalidate>
+<form *ngIf="user" #formData='ngForm' (ngSubmit)="addUser(formData)" novalidate>
   <mat-form-field>
-      <input matInput type="text" placeholder="UserId" name="userid" [ngModel]="user.userid" #userid="ngModel" required pattern="[0-9]{5}">
+      <input matInput type="text" placeholder="UserId" name="userid" [(ngModel)]="user.userid" #userid="ngModel" required pattern="[0-9]{5}">
       <mat-error *ngIf="userid.errors?.required && userid.touched">
         UserId is <strong>required</strong>
       </mat-error>
       <mat-error *ngIf="userid.errors?.pattern && userid.touched">
         Only <strong>5</strong> characters and <strong>numeric</strong>
       </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="user.password" #password="ngModel" [type]="hide ? 'text' : 'password'" required>
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    <mat-error *ngIf="password.errors?.required && password.touched">
+      Password is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
@@ -49,9 +57,11 @@
   </div>
   <pre>Form status: {{formData.status | json}}</pre>
   <pre>Form value:<br>{{formData.value | json}}</pre>
+  {{ user | json }}
 </form>
-<ul *ngFor="let user of myUser">
+<ul *ngFor="let user of tempUser">
   <li>{{user.userid}}</li>
+  <li>{{user.password}}</li>
   <li>{{user.username}}</li>
   <li>{{user.email}}</li>
   <li>{{user.phone.landline}}</li>

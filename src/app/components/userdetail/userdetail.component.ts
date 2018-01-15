@@ -13,6 +13,8 @@ export class UserdetailComponent implements OnInit, OnDestroy {
   id: number;
   username: string;
   private sub: any;
+  // private backgroundColor: any;
+
   constructor(private route: ActivatedRoute, private db: AngularFireDatabase) { }
 
   ngOnInit() {
@@ -21,6 +23,8 @@ export class UserdetailComponent implements OnInit, OnDestroy {
       this.username = params['username'];
    });
    this.usersObservable = this.getUsers('/users');
+  //  enum Color {Red, Green, Blue}
+  //  this.backgroundColor = Color[2];
   }
 
   getUsers(listPath): Observable<any[]> {

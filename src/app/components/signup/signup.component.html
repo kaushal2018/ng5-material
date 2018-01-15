@@ -1,11 +1,18 @@
 <h3><i>SignUp Form (ReactiveFormsModule)</i></h3>
-<!--<p appHighlight [highlightColor]="orange">Highlight me!</p>-->
 <form #formData='ngForm' (ngSubmit)="addUser(formData)" [formGroup]="signUpForm">
     <mat-form-field>
         <input matInput type="text" placeholder="UserId*" name="userid" formControlName="userid">
         <mat-error *ngIf="signUpForm.get('userid').hasError('required')">
             UserId is <strong>required</strong>
         </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" name="password" [type]="hide ? 'text' : 'password'" formControlName="password" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="signUpForm.get('password').hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <br>
     <mat-form-field>
@@ -45,7 +52,7 @@
     </div>
     <br>
     <div class="example-button-row">
-        <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Login in</button>
+        <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Sign Up</button>
         <a routerLink="/login" mat-raised-button color="primary">Go back</a>
         <a routerLink="/signup2" mat-raised-button color="primary">SignUp Form (Template-driven)</a>
     </div>
