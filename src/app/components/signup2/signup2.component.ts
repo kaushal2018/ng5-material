@@ -13,14 +13,16 @@ export class Signup2Component implements OnInit {
   // https://toddmotto.com/angular-2-forms-template-driven
   // public user: User; // user model using user interface
   // user = new UserModel(); // user model using user class
-  tempUser: UserModel[] = [];
+
+  // tempUser: UserModel[] = [];
+
   // userdetails;
   // constructor(private aservice: AuthorListService) {
   //  this.userdetails =  aservice.resetuserModel(this.user);
   //  console.log(this.userdetails);
   // }
-  user: UserModel = {
-    userid: 123,
+  user = [{
+    userid: null,
     password: '',
     username: '',
     email: '',
@@ -28,7 +30,7 @@ export class Signup2Component implements OnInit {
       landline: '',
       mobile: ''
     }
-  };
+  }];
   constructor() {
     // this.user = {
     //   userid: null,
@@ -44,7 +46,7 @@ export class Signup2Component implements OnInit {
 
   addUser(formData: any): void {
     if (formData.valid) {
-      this.tempUser = [{
+      this.user = [{
         userid: formData.value.userid,
         password: formData.value.password,
         username: formData.value.username,
@@ -57,6 +59,22 @@ export class Signup2Component implements OnInit {
       console.log(this.user);
     }
   }
+
+  // addUser(formData: any): void {
+  //   if (formData.valid) {
+  //     this.tempUser = [{
+  //       userid: formData.value.userid,
+  //       password: formData.value.password,
+  //       username: formData.value.username,
+  //       email: formData.value.email,
+  //       phone: {
+  //         landline: formData.value.phone.landline,
+  //         mobile: formData.value.phone.mobile
+  //       }
+  //     }];
+  //     console.log(this.user);
+  //   }
+  // }
 
   ngOnInit() {
     console.log(this.user);
