@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-
+  authState: any = null;
   constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) { }
 
   loginWithGoogle() {
@@ -18,11 +18,13 @@ export class AuthService {
   loginWithEmail(email: string, pass: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, pass);
   }
+  githubLogin() {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+  }
   signupWithEmailAndPass(email: string, pass: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, pass);
   }
   logout() {
     this.afAuth.auth.signOut();
   }
-
 }

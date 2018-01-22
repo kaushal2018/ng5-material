@@ -9,5 +9,15 @@
     <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
+<!-- <h1>Single slot transclusion</h1>
+<app-card header="my header" footer="my footer">
+    
+    <div class="card-block">
+        <h4 class="card-title">You can put any content here</h4>
+        <p class="card-text">For example this line of text and</p>
+        <a href="#" class="btn btn-primary">This button</a>
+      </div>
+      
+</app-card> -->
 <!--{{user_displayName}}, {{isLoggedIn}}, {{user_email}}-->
 <router-outlet></router-outlet>

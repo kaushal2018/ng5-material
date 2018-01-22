@@ -8,10 +8,16 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input type="password" matInput placeholder="Password" name="password" [type]="hide ? 'text' : 'password'" formControlName="password" required>
+      <input type="password" matInput placeholder="Password" name="password" [type]="hide ? 'text' : 'password'" formControlName="password">
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       <mat-error *ngIf="signUpForm.get('password').hasError('required')">
         Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="signUpForm.get('password').hasError('minlength')">
+        Password should be <strong>at least 6 characters</strong>
+      </mat-error>
+      <mat-error *ngIf="signUpForm.get('password').hasError('maxlength')">
+        Password should not be <strong>more than 10 characters</strong>
       </mat-error>
     </mat-form-field>
     <br>
@@ -24,11 +30,14 @@
     <br>
     <mat-form-field>
         <input matInput type="email" placeholder="Email*" name="email" formControlName="email">
-        <mat-error *ngIf="signUpForm.get('email').hasError('email') && !signUpForm.get('email').hasError('required')">
+        <mat-error *ngIf="signUpForm.get('email').hasError('email') && !signUpForm.get('email').hasError('required') && !signUpForm.submitted">
             Please <strong>enter a valid email</strong> address
         </mat-error>
-        <mat-error *ngIf="signUpForm.get('email').hasError('required')">
+        <mat-error *ngIf="signUpForm.get('email').hasError('required') && !signUpForm.submitted">
             Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="error && !signUpForm.get('email').hasError('required') && !signUpForm.get('email').hasError('email')">
+            <strong>{{ error }}</strong>
         </mat-error>
     </mat-form-field>
     <br>
@@ -56,10 +65,14 @@
         <a routerLink="/login" mat-raised-button color="primary">Go back</a>
         <a routerLink="/signup2" mat-raised-button color="primary">SignUp Form (Template-driven)</a>
     </div>
+    <br>
+    <div class="example-button-row">
+        <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+    </div>
     <pre>Form status: {{signUpForm.status | json}}</pre>
     <pre>Form value:<br>{{signUpForm.value | json}}</pre>
 </form>
-<mat-card class="example-card" *ngFor="let user of myUser">
+<!-- <mat-card class="example-card" *ngFor="let user of myUser">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{user.userid}} - {{user.username}}</mat-card-title>
@@ -76,4 +89,4 @@
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
     </mat-card-actions>
-</mat-card>
+</mat-card> -->

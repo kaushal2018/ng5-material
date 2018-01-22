@@ -27,6 +27,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
 import { AbcComponent } from './components/abc/abc.component';
+import { InputComponent } from './components/input/input.component';
+// import { CardComponent } from './components/card/card.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -49,7 +51,9 @@ export const firebaseConfig = {
     SignupComponent,
     Signup2Component,
     UserdetailComponent,
-    AbcComponent
+    AbcComponent,
+    InputComponent,
+    // CardComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,7 @@ export const firebaseConfig = {
     AppRoutingModule,
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }

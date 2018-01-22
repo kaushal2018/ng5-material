@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { moveIn, fallIn } from '../../router.animations';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from '../../providers/auth.service';
 import { Observable } from 'rxjs/Observable';
@@ -10,7 +11,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  animations: [moveIn(), fallIn()]
 })
 export class SignupComponent extends UserData implements OnInit {
   tempUser: UserModel[];
@@ -23,10 +25,10 @@ export class SignupComponent extends UserData implements OnInit {
 
   createForm() {
     this.signUpForm = this.fb.group({
-      userid: ['', Validators.required ],
-      password: ['', Validators.required ],
-      username: ['', Validators.required ],
-      email: ['', [ Validators.required, Validators.email ]],
+      userid: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+      username: ['', Validators.required],
+      email: ['', [ Validators.required, Validators.email]],
       phone: this.fb.group({
         landline: ['', Validators.pattern('[0-9]{11}')],
         mobile: ['', [ Validators.required, Validators.pattern('[0-9]{10}') ]],
@@ -46,16 +48,9 @@ export class SignupComponent extends UserData implements OnInit {
           mobile: formData.value.phone.mobile
         }
       }];
+
       if (formData.valid) {
-        this.myUser.push(this.tempUser[0]);
-        this.writeUserData(
-          this.tempUser[0].userid,
-          this.tempUser[0].password,
-          this.tempUser[0].username,
-          this.tempUser[0].email,
-          this.tempUser[0].phone.landline,
-          this.tempUser[0].phone.mobile
-        );
+        this.loginAfterSuccessfullSignUp(this.tempUser[0].email, this.tempUser[0].password);
       }
   }
 
@@ -74,36 +69,36 @@ export class SignupComponent extends UserData implements OnInit {
     }).then(
       (success) => {
       console.log(success);
-      this.redirectComponent('');
     }).catch(
       (err) => {
       console.log(err);
       this.error = err;
     });
-
-    /*this.authService.signupWithEmailAndPass(email, password).then(
-      (success) => {
-      console.log(success);
-      this.router.navigate(['']);
-    }).catch(
-      (err) => {
-      console.log(err);
-      this.error = err;
-    });*/
-
   }
 
-  redirectComponent(page: string) {
-    this.authService.afAuth.authState.subscribe(
-      (auth) => {
-        if (auth != null) {
-          if (page !== '') {
-            this.router.navigate(['/' + page.toLowerCase()]);
-          }else {
-            this.router.navigate(['']);
-          }
-        }
-      });
+  loginAfterSuccessfullSignUp(email, password) {
+    this.authService.signupWithEmailAndPass(email, password).then(
+      (success) => {
+        console.log(success);
+
+        this.writeUserData(
+          this.tempUser[0].userid,
+          this.tempUser[0].password,
+          this.tempUser[0].username,
+          this.tempUser[0].email,
+          this.tempUser[0].phone.landline,
+          this.tempUser[0].phone.mobile
+        );
+
+        // this.myUser.push(this.tempUser[0]);
+        this.router.navigate(['about']);
+    }).catch(
+      (err) => {
+        console.log(err);
+        this.error = err;
+        this.signUpForm.setErrors({'INVALID': true});
+        this.signUpForm.controls['email'].setErrors({'INVALID': true});
+    });
   }
 
   ngOnInit() {

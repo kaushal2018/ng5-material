@@ -10,3 +10,13 @@ ul{float:left;}
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
 }
+
+.error {
+    background: #f1f0ef;
+    padding: 1em 0em 1em 1em;
+    width: 400px;
+    display: block;
+    font-size:12px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: #ff4081;
+}

@@ -11,11 +11,13 @@ export class AboutComponent implements OnInit {
   usersObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase) { }
 
-  getUsers(listPath): Observable<any[]> {
+  getUsers(listPath) {
     return this.db.list(listPath).valueChanges();
   }
 
   ngOnInit() {
     this.usersObservable = this.getUsers('/users');
+
+    console.log(this.usersObservable);
   }
 }
