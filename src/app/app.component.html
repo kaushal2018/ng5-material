@@ -3,12 +3,20 @@
   <mat-toolbar-row>
     <span>NG5 Material {{ title }}</span>
     <span class="example-spacer"></span>    
-    <button mat-button (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
-    <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
-    <button mat-button (click)="showComponent('Contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
+    <button mat-button routerLinkActive="active" (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
+    <button mat-button routerLinkActive="active" (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
+    <button mat-button routerLinkActive="active" (click)="showComponent('Contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
     <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
+<!-- <nav class="nav">
+  <div class="nav-item" routerLink="/about" routerLinkActive="active">
+    login
+  </div>
+  <div class="nav-item" routerLink="/home" routerLinkActive="active">
+    home
+  </div>
+</nav> -->
 <!-- <h1>Single slot transclusion</h1>
 <app-card header="my header" footer="my footer">
     
@@ -19,5 +27,12 @@
       </div>
       
 </app-card> -->
-<!--{{user_displayName}}, {{isLoggedIn}}, {{user_email}}-->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<!-- <app-http-api></app-http-api> -->
+<!-- <app-http-with-promises></app-http-with-promises> -->
+<app-http-with-observables></app-http-with-observables>
+<!-- <app-inheritance></app-inheritance> -->
+<!-- <br>
+Name: {{user_displayName}}<br>
+IsLoggedIn?: {{isLoggedIn}}<br>
+Email: {{user_email}} -->

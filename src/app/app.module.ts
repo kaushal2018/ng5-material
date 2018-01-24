@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import {JsonpModule, Jsonp, Response} from '@angular/http';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatInputModule, MatProgressBarModule,
   MatToolbarModule, MatFormFieldModule, MatButtonModule, MatCardModule, MatMenuModule, MatIconModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-// While using formControl, you have to import ReactiveFormsModule to your imports array
+// For using formControl, you have to import ReactiveFormsModule to your imports array
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -27,7 +29,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
 import { AbcComponent } from './components/abc/abc.component';
-import { InputComponent } from './components/input/input.component';
+import { InheritanceComponent } from './components/inheritance/inheritance.component';
+import { HttpApiComponent } from './components/http-api/http-api.component';
+import { HttpWithPromisesComponent } from './components/http-with-promises/http-with-promises.component';
+import { HttpWithObservablesComponent } from './components/http-with-observables/http-with-observables.component';
 // import { CardComponent } from './components/card/card.component';
 
 export const firebaseConfig = {
@@ -52,7 +57,10 @@ export const firebaseConfig = {
     Signup2Component,
     UserdetailComponent,
     AbcComponent,
-    InputComponent,
+    InheritanceComponent,
+    HttpApiComponent,
+    HttpWithPromisesComponent,
+    HttpWithObservablesComponent,
     // CardComponent
   ],
   imports: [
@@ -74,6 +82,8 @@ export const firebaseConfig = {
     ReactiveFormsModule,
     MatProgressBarModule,
     AppRoutingModule,
+    HttpModule,
+    JsonpModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

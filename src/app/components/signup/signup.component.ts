@@ -6,7 +6,7 @@ import { AuthService } from '../../providers/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { UserModel } from '../../shared/models/user.model';
 import { UserData } from '../../shared/data/user.data';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -17,6 +17,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class SignupComponent extends UserData implements OnInit {
   tempUser: UserModel[];
   signUpForm: FormGroup;
+  userid: AbstractControl;
   error: any;
   constructor(public authService: AuthService, private fb: FormBuilder, private db: AngularFireDatabase, private router: Router) {
     super();
@@ -25,7 +26,7 @@ export class SignupComponent extends UserData implements OnInit {
 
   createForm() {
     this.signUpForm = this.fb.group({
-      userid: ['', Validators.required],
+      userid: ['', [Validators.required, this.customValidator]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       username: ['', Validators.required],
       email: ['', [ Validators.required, Validators.email]],
@@ -34,6 +35,13 @@ export class SignupComponent extends UserData implements OnInit {
         mobile: ['', [ Validators.required, Validators.pattern('[0-9]{10}') ]],
       })
     });
+    this.userid = this.signUpForm.controls['userid'];
+  }
+
+  customValidator(control: FormControl): { [s: string]: boolean } {
+    if (!control.value.match(/^123/)) {
+      return {invalidUserId: true};
+    }
   }
 
   addUser(formData: any): void {

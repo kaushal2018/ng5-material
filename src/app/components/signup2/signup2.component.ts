@@ -6,8 +6,7 @@ import { AuthorListService } from '../../providers/abc.services';
 @Component({
   selector: 'app-signup2',
   templateUrl: './signup2.component.html',
-  styleUrls: ['./signup2.component.css'],
-  // providers: [AuthorListService]
+  styleUrls: ['./signup2.component.css']
 })
 export class Signup2Component implements OnInit {
   // https://toddmotto.com/angular-2-forms-template-driven
