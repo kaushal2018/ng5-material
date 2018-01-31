@@ -14,7 +14,7 @@ export class SearchService {
 
     search(term: string) {
         this.promise = new Promise((resolve, reject) => {
-            this.apiURL = `${this.apiRoot}?term=${term}&media=music&limit=100`;
+            this.apiURL = `${this.apiRoot}?term=${term}&media=music&limit=10`;
             this.http.get(this.apiURL)
                 .toPromise()
                 .then(

@@ -4,6 +4,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { HttpWithPromisesComponent } from './components/http-with-promises/http-with-promises.component';
+import { HttpWithObservablesComponent } from './components/http-with-observables/http-with-observables.component';
 import { EmailComponent } from './components/email/email.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -11,18 +13,13 @@ import { Signup2Component } from './components/signup2/signup2.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
 import {AbcComponent} from './components/abc/abc.component';
 import {InheritanceComponent} from './components/inheritance/inheritance.component';
-// import { CardComponent } from './components/card/card.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  // { path: 'login', component: InheritanceComponent },
-  // { path: 'login', component: AbcComponent },
-  // { path: 'login', component: CardComponent },
   { path: '', component: HomeComponent },
-  { path: 'About', component: AboutComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'Contact', component: ContactComponent },
+  { path: 'test1', component: HttpWithObservablesComponent },
+  { path: 'test2', component: HttpWithPromisesComponent },
   { path: 'email', component: EmailComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'signup2', component: Signup2Component },

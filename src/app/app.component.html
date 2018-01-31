@@ -1,11 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>NG5 Material {{ title }}</span>
+    <span>NG5 Material {{ title | uppercase }}</span>
     <span class="example-spacer"></span>    
-    <button mat-button routerLinkActive="active" (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
-    <button mat-button routerLinkActive="active" (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
-    <button mat-button routerLinkActive="active" (click)="showComponent('Contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
+    <button mat-button (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
+    <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
+    <button mat-button (click)="showComponent('test1')" [style.display]="isLoggedIn ? 'block' : 'none'">Test1</button>
+    <button mat-button (click)="showComponent('test2')" [style.display]="isLoggedIn ? 'block' : 'none'">Test2</button>
     <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -28,9 +28,11 @@
       
 </app-card> -->
 <!-- <router-outlet></router-outlet> -->
+<!-- <app-abc></app-abc> -->
+<app-favourite [is-favourite]="post.isFavourite" (myChange)="onFavouriteChange($event)"></app-favourite>
 <!-- <app-http-api></app-http-api> -->
 <!-- <app-http-with-promises></app-http-with-promises> -->
-<app-http-with-observables></app-http-with-observables>
+<!-- <app-http-with-observables></app-http-with-observables> -->
 <!-- <app-inheritance></app-inheritance> -->
 <!-- <br>
 Name: {{user_displayName}}<br>

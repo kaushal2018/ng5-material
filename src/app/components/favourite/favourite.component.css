@@ -1,0 +1,8 @@
+.rating > span {
+  font-size: 100px;
+  cursor: pointer;    
+}
+.star-filled:before {
+  content: "\2605";
+  position: absolute;
+}

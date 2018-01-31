@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import {JsonpModule, Jsonp, Response} from '@angular/http';
+import { JsonpModule, Jsonp, Response } from '@angular/http';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -33,7 +33,8 @@ import { InheritanceComponent } from './components/inheritance/inheritance.compo
 import { HttpApiComponent } from './components/http-api/http-api.component';
 import { HttpWithPromisesComponent } from './components/http-with-promises/http-with-promises.component';
 import { HttpWithObservablesComponent } from './components/http-with-observables/http-with-observables.component';
-// import { CardComponent } from './components/card/card.component';
+import { SummaryPipe } from './shared/pipe/summary.pipe';
+import { FavouriteComponent } from './components/favourite/favourite.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -61,7 +62,8 @@ export const firebaseConfig = {
     HttpApiComponent,
     HttpWithPromisesComponent,
     HttpWithObservablesComponent,
-    // CardComponent
+    SummaryPipe,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,

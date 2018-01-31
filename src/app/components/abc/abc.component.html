@@ -1,6 +1,13 @@
-<p>
-  Authors!
-</p>
-<ul>
+<div (click)="onDivClick()" [class.active]="isActive">
+  <p [style.background]="isActive ? '#ccc':'#fff'" (click)="onSave($event)">
+    {{x}}, {{y}}, {{isActive}}, {{ email | uppercase }}<br>
+    {{course.rating | number:'1.1-1'}}<br>
+    {{course.price | currency:'USD':true:'1.1-1'}}<br>
+    {{course.releaseDate | date:'fullDate'}}<br>
+    {{text | summary}}
+  </p>
+  <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+</div>
+<!-- <ul>
   <li *ngFor="let author of listAuthors">{{author}}</li>
-</ul>
+</ul> -->

@@ -15,7 +15,7 @@ export class HttpWithPromisesComponent implements OnInit {
   doSearch(term: string) {
     this.loading = true;
     // this.itunes.search(term);
-    this.itunes.search(term).then( () => this.loading = false);
+    this.itunes.search(term).then(() => this.loading = false);
   }
 
   ngOnInit() {

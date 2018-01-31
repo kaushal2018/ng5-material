@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './providers/auth.service';
+import { FavouriteChangedEventArgs } from './components/favourite/favourite.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,9 @@ import { AuthService } from './providers/auth.service';
   exportAs: 'routerLinkActive'
 })
 export class AppComponent {
+  post = {
+    isFavourite: true
+  };
   private isLoggedIn: Boolean;
   private user_displayName: String;
   private user_email: String;
@@ -30,7 +34,7 @@ export class AppComponent {
       }
     );
   }
-  title = '';
+  title;
   showComponent(page: string) {
     this.authService.afAuth.authState.subscribe(
       (auth) => {
@@ -49,5 +53,10 @@ export class AppComponent {
     this.title = 'Login';
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  onFavouriteChange(eventArgs: FavouriteChangedEventArgs) {
+    // console.log('Favourite changed ');
+    console.log('Favourite changed : ', eventArgs.newValue, eventArgs.anotherValue);
   }
 }

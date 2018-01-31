@@ -6,14 +6,13 @@ import { SearchItem } from '../shared/models/search.model';
 export class SearchServiceObservable {
     apiRoot: string = 'https://itunes.apple.com/search';
     results: SearchItem[];
-    promise;
     apiURL;
 
     constructor(private jsonp: Jsonp) {
     }
 
     search(term: string) {
-        this.apiURL = `${this.apiRoot}?term=${term}&media=music&limit=100&callback=JSONP_CALLBACK`;
+        this.apiURL = `${this.apiRoot}?term=${term}&media=music&limit=10&callback=JSONP_CALLBACK`;
         return this.jsonp.request(this.apiURL)
         .map(res => {
             // console.log(res.json().results);
@@ -27,5 +26,6 @@ export class SearchServiceObservable {
                 );
             });
         });
+        // .catch((error: Response) => Observable.throw(error.json() || 'Server error'));
     }
 }
