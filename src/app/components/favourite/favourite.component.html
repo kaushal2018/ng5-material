@@ -1,3 +1,14 @@
 <div class="rating">
-  <span (click)="onclick()" [class.star-filled]="isSelected" [class.star-empty]="!isSelected">☆</span>
+  <!-- <span
+  [class.star-filled]="isSelected"
+  [class.star-empty]="!isSelected"  
+  (click)="onclick()"
+  >☆</span> -->
+  <span
+  [ngClass]="{
+    'star-filled': isSelected,
+    'star-empty': !isSelected
+  }"
+  (click)="onclick()"
+  >☆</span>
 </div>

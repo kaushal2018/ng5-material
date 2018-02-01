@@ -83,7 +83,7 @@
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
+    "prefer-const": false,// 'true' requires that variable declarations use `const` instead of `let` and `var` if possible.
     "quotemark": [
       true,
       "single"

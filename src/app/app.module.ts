@@ -35,6 +35,8 @@ import { HttpWithPromisesComponent } from './components/http-with-promises/http-
 import { HttpWithObservablesComponent } from './components/http-with-observables/http-with-observables.component';
 import { SummaryPipe } from './shared/pipe/summary.pipe';
 import { FavouriteComponent } from './components/favourite/favourite.component';
+import { BootstrapPanelComponent } from './components/bootstrap-panel/bootstrap-panel.component';
+import { CardComponent } from './components/card/card.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -63,7 +65,9 @@ export const firebaseConfig = {
     HttpWithPromisesComponent,
     HttpWithObservablesComponent,
     SummaryPipe,
-    FavouriteComponent
+    FavouriteComponent,
+    BootstrapPanelComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

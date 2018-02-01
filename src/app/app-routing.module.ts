@@ -17,7 +17,7 @@ import {InheritanceComponent} from './components/inheritance/inheritance.compone
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about', component: AboutComponent, data: { title: 'My Calendar' } },
   { path: 'test1', component: HttpWithObservablesComponent },
   { path: 'test2', component: HttpWithPromisesComponent },
   { path: 'email', component: EmailComponent },
