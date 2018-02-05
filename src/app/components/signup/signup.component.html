@@ -1,80 +1,92 @@
-<h3><i>SignUp Form (ReactiveFormsModule)</i></h3>
-<form #formData='ngForm' (ngSubmit)="addUser(formData)" [formGroup]="signUpForm">
-    <mat-form-field>
-        <input matInput type="text" placeholder="UserId*" name="userid" formControlName="userid">
-        <mat-error *ngIf="userid.hasError('required')">
-            UserId is <strong>required</strong>
-        </mat-error>
-        <mat-error *ngIf="userid.hasError('invalidUserId') && !userid.hasError('required')">
-            UserId must begin with <strong>123</strong>
-        </mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Password" name="password" [type]="hide ? 'text' : 'password'" formControlName="password">
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-      <mat-error *ngIf="signUpForm.hasError('required','password')">
-        Password is <strong>required</strong>
-      </mat-error>
-      <mat-error *ngIf="signUpForm.get('password').hasError('minlength')">
-        Password should be <strong>at least 6 characters</strong>
-      </mat-error>
-      <mat-error *ngIf="signUpForm.get('password').hasError('maxlength')">
-        Password should not be <strong>more than 10 characters</strong>
-      </mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput type="text" placeholder="UserName*" name="username" formControlName="username">
-        <mat-error *ngIf="signUpForm.get('username').hasError('required')">
-            UserName is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput type="email" placeholder="Email*" name="email" formControlName="email">
-        <mat-error *ngIf="signUpForm.get('email').hasError('email') && !signUpForm.get('email').hasError('required')">
-            Please <strong>enter a valid email</strong> address
-        </mat-error>
-        <mat-error *ngIf="signUpForm.get('email').hasError('required')">
-            Email is <strong>required</strong>
-        </mat-error>
-        <mat-error *ngIf="error && !signUpForm.get('email').hasError('required') && !signUpForm.get('email').hasError('email')">
-            <strong>{{ error }}</strong>
-        </mat-error>
-    </mat-form-field>
-    <br>
-    <div formGroupName="phone">
+<div class="container">
+    <h3><i>SignUp Form (ReactiveFormsModule)</i></h3>
+    <form #formData='ngForm' (ngSubmit)="addUser(formData)" [formGroup]="signUpForm">
+        <!-- <div *ngIf="signUpForm.errors" class="alert alert-danger">Form is invalid</div> -->
         <mat-form-field>
-            <input matInput type="text" placeholder="Landline" name="landline" formControlName="landline">
-            <mat-error *ngIf="signUpForm.get('phone.landline').hasError('pattern')">
-                Please enter a valid landline<strong> number</strong>
+            <input matInput type="text" placeholder="UserId*" name="userid" formControlName="userid">
+            <mat-error *ngIf="userid.hasError('required')">
+                UserId is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="userid.hasError('invalidUserId') && !userid.hasError('required')">
+                UserId must begin with <strong>123</strong>
             </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput type="text" placeholder="Mobile*" name="mobile" formControlName="mobile">
-            <mat-error *ngIf="signUpForm.get('phone.mobile').hasError('pattern') && !signUpForm.get('phone.mobile').hasError('required')">
-                Please enter a valid mobile <strong>number</strong>
+        <input type="password" matInput placeholder="Password" name="password" [type]="hide ? 'text' : 'password'" formControlName="password">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="signUpForm.hasError('required','password')">
+            Password is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="signUpForm.get('password').hasError('minlength')">
+            Password should be <strong>at least 6 characters</strong>
+        </mat-error>
+        <mat-error *ngIf="signUpForm.get('password').hasError('maxlength')">
+            Password should not be <strong>more than 10 characters</strong>
+        </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" placeholder="UserName*" name="username" formControlName="username">
+            <mat-error *ngIf="signUpForm.get('username').hasError('required')">
+                UserName is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="signUpForm.get('phone.mobile').hasError('required')">
-                Mobile is <strong>required</strong>
+            <mat-error *ngIf="signUpForm.get('username').hasError('cannotContainSpace')">
+                UserName <strong>cannot contain space</strong>
             </mat-error>
-        </mat-form-field>    
-    </div>
-    <br>
-    <div class="example-button-row">
-        <button mat-raised-button type="submit" [disabled]="!formData.valid" color="accent">Sign Up</button>
-        <a routerLink="/login" mat-raised-button color="primary">Go back</a>
-        <a routerLink="/signup2" mat-raised-button color="primary">SignUp Form (Template-driven)</a>
-    </div>
-    <br>
-    <div class="example-button-row">
-        <span class="error" *ngIf="error && !signUpForm.get('email').hasError('required') && !signUpForm.get('email').hasError('email') && !signUpForm.valid" [@fallIn]='state'>{{ error }}</span>
-    </div>
-    <pre>Form status: {{signUpForm.status | json}}</pre>
-    <pre>Form value:<br>{{signUpForm.value | json}}</pre>
-</form>
+            <mat-error *ngIf="signUpForm.get('username').hasError('shouldBeUnique')">
+                UserName <strong>already taken</strong>
+            </mat-error>
+            <div *ngIf="signUpForm.get('username').pending">
+                <mat-progress-bar color="primary" mode="indeterminate"></mat-progress-bar>
+            </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="email" placeholder="Email*" name="email" formControlName="email">
+            <mat-error *ngIf="signUpForm.get('email').hasError('email') && !signUpForm.get('email').hasError('required')">
+                Please <strong>enter a valid email</strong> address
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('email').hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="error && !signUpForm.get('email').hasError('required') && !signUpForm.get('email').hasError('email')">
+                <strong>{{ error }}</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <div formGroupName="phone">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Landline" name="landline" formControlName="landline">
+                <mat-error *ngIf="signUpForm.get('phone.landline').hasError('pattern')">
+                    Please enter a valid landline<strong> number</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Mobile*" name="mobile" formControlName="mobile">
+                <mat-error *ngIf="signUpForm.get('phone.mobile').hasError('pattern') && !signUpForm.get('phone.mobile').hasError('required')">
+                    Please enter a valid mobile <strong>number</strong>
+                </mat-error>
+                <mat-error *ngIf="signUpForm.get('phone.mobile').hasError('required')">
+                    Mobile is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>    
+        </div>
+        <br>
+        <div class="example-button-row">
+            <button mat-raised-button type="submit" color="accent">Sign Up</button>
+            <a routerLink="/login" mat-raised-button color="primary">Go back</a>
+            <a routerLink="/signup2" mat-raised-button color="primary">SignUp Form (Template-driven)</a>
+        </div>
+        <br>
+        <div class="example-button-row">
+            <span class="error" *ngIf="error && !signUpForm.get('email').hasError('required') && !signUpForm.get('email').hasError('email') && !signUpForm.valid" [@fallIn]='state'>{{ error }}</span>
+        </div>
+        <pre>Form status: {{signUpForm.status | json}}</pre>
+        <pre>Form value:<br>{{signUpForm.value | json}}</pre>
+    </form>
+</div>
 <!-- <mat-card class="example-card" *ngFor="let user of myUser">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>

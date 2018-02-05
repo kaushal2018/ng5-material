@@ -1,3 +1,6 @@
-.example-card, .mat-card {
-    width: 400px;
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid #970202;
+}
+.form-control.ng-touched.ng-valid{
+    border: 2px solid #0F550F;
 }

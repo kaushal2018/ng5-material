@@ -13,6 +13,7 @@ import { Signup2Component } from './components/signup2/signup2.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
 import {AbcComponent} from './components/abc/abc.component';
 import {InheritanceComponent} from './components/inheritance/inheritance.component';
+import { NewCourseFormComponent } from './components/new-course-form/new-course-form.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: { title: 'My Calendar' } },
   { path: 'test1', component: HttpWithObservablesComponent },
   { path: 'test2', component: HttpWithPromisesComponent },
+  { path: 'courses', component: NewCourseFormComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'email', component: EmailComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'signup2', component: Signup2Component },

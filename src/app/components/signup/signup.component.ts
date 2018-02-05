@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { UserModel } from '../../shared/models/user.model';
 import { UserData } from '../../shared/data/user.data';
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { UserNameValidators } from '../../common/validators/username.validators';
 
 @Component({
   selector: 'app-signup',
@@ -28,7 +29,7 @@ export class SignupComponent extends UserData implements OnInit {
     this.signUpForm = this.fb.group({
       userid: ['', [Validators.required, this.customValidator]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-      username: ['', Validators.required],
+      username: ['', [Validators.required, UserNameValidators.cannotContainSpace], UserNameValidators.shouldBeUnique],
       email: ['', [ Validators.required, Validators.email]],
       phone: this.fb.group({
         landline: ['', Validators.pattern('[0-9]{11}')],
@@ -44,7 +45,7 @@ export class SignupComponent extends UserData implements OnInit {
     }
   }
 
-  addUser(formData: any): void {
+  addUser(formData): void {
     this.tempUser = [
       {
         userid: formData.value.userid,
@@ -60,6 +61,7 @@ export class SignupComponent extends UserData implements OnInit {
       if (formData.valid) {
         this.loginAfterSuccessfullSignUp(this.tempUser[0].email, this.tempUser[0].password);
       }
+      //this.signUpForm.setErrors({invalidSignUp: true});
   }
 
   writeUserData(userid, password, name, email, landline, mobile): void {

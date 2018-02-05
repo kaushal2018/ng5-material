@@ -6,6 +6,8 @@
     <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
     <button mat-button (click)="showComponent('test1')" [style.display]="isLoggedIn ? 'block' : 'none'">Test1</button>
     <button mat-button (click)="showComponent('test2')" [style.display]="isLoggedIn ? 'block' : 'none'">Test2</button>
+    <button mat-button (click)="showComponent('courses')" [style.display]="isLoggedIn ? 'block' : 'none'">Courses</button>
+    <button mat-button (click)="showComponent('contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
     <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -26,7 +28,7 @@
     <a href="#" class="btn btn-primary">This button</a>
   </div>      
 </app-card> -->
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 <!-- <app-abc></app-abc> -->
 <!-- <app-bootstrap-panel>
   <ng-container>Heading...</ng-container>
@@ -45,14 +47,16 @@ IsLoggedIn?: {{isLoggedIn}}<br>
 Email: {{user_email}} -->
 <!-- end -->
 
-<button mat-raised-button color="accent" (click)="loadCourses()">Load Courses</button>
+<!-- <button mat-raised-button color="accent" (click)="loadCourses()">Load Courses</button>
 <button mat-raised-button color="accent" (click)="onAddCourses()">Add Courses</button>
 <button mat-raised-button color="primary" [disabled]="!canSave" (click)="onSaveCourses()">Save</button>
-<br>
+<br> -->
 <!-- using ngIf removes the element from  the dom : Structural directive-->
-<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+
+<!-- <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
 <ng-template #coursesList>List of courses</ng-template>
-<ng-template #noCourses>No courses</ng-template>
+<ng-template #noCourses>No courses</ng-template> -->
+
 <!-- using properties e.g. hidden hides the element in the dom : Attribute directive -->
 <!-- <div [hidden]="courses.length == 0">List of courses</div>
 <div [hidden]="courses.length > 0">No courses yet</div> -->
@@ -66,7 +70,8 @@ Email: {{user_email}} -->
   <div *ngSwitchCase="'list'">List view content</div>
   <div *ngSwitchDefault>Otherwise</div>
 </div> -->
-<ul>
+
+<!-- <ul>
   <li *ngFor="let course of courses; trackBy: trackCourse; first as isFirst; last as isLast; even as isEven; index as i;">
     <button mat-raised-button color="warn" (click)="onRemoveCourses(course)">Remove</button>
     ID: {{course.id}}, Name: {{course.name}}, Index: {{i}} 
@@ -76,7 +81,19 @@ Email: {{user_email}} -->
     <ng-template #isEvenItem>Is Even</ng-template>
     <ng-template #isOddItem>Is Odd</ng-template>
   </li>
-</ul>
-<app-favourite [is-favourite]="post.isFavourite" (myChange)="onFavouriteChange($event)"></app-favourite>
+</ul> -->
+
+<!-- <app-favourite [is-favourite]="post.isFavourite" (myChange)="onFavouriteChange($event)"></app-favourite> -->
+
 <!-- safe traversal operator -->
-<span>{{ task.assignee?.name }}</span>
+<!-- <span>{{ task.assignee?.name }}</span> -->
+
+<!-- <input type="text" appInputFormat [format]="'uppercase'">
+  <input type="text" appInputFormat [format]="'lowercase'"> -->
+<!-- ablove and below formats does the same thing. 
+  change the @Input alias in the directive to get the below code working -->
+<!-- the below will also work i.e. without passing any format parameter -->
+<!-- <input type="text" appInputFormat> -->
+
+<!-- <input type="text" [appInputFormat]="'lowercase'"> -->
+<!-- <input type="text" [appInputFormat]="'uppercase'"> -->
