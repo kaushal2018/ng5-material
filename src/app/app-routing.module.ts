@@ -14,6 +14,7 @@ import { UserdetailComponent } from './components/userdetail/userdetail.componen
 import {AbcComponent} from './components/abc/abc.component';
 import {InheritanceComponent} from './components/inheritance/inheritance.component';
 import { NewCourseFormComponent } from './components/new-course-form/new-course-form.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'test1', component: HttpWithObservablesComponent },
   { path: 'test2', component: HttpWithPromisesComponent },
   { path: 'courses', component: NewCourseFormComponent },
+  { path: 'posts', component: PostsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'email', component: EmailComponent },
   { path: 'signup', component: SignupComponent },

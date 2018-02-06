@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { JsonpModule, Jsonp, Response } from '@angular/http';
 import { MaterialModule } from './material/material.module';
@@ -39,6 +39,8 @@ import { BootstrapPanelComponent } from './components/bootstrap-panel/bootstrap-
 import { CardComponent } from './components/card/card.component';
 import { InputFormatDirective } from './directives/input-format.directive';
 import { NewCourseFormComponent } from './components/new-course-form/new-course-form.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { AppErrorHandler } from './common/app-error-handler';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -71,7 +73,8 @@ export const firebaseConfig = {
     BootstrapPanelComponent,
     CardComponent,
     InputFormatDirective,
-    NewCourseFormComponent
+    NewCourseFormComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,10 @@ export const firebaseConfig = {
     HttpModule,
     JsonpModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {provide: ErrorHandler, useClass: AppErrorHandler}
+  ],
   bootstrap: [AppComponent],
   // schemas: [ NO_ERRORS_SCHEMA ]
 })
