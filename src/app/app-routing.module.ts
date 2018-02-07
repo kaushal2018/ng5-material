@@ -17,6 +17,7 @@ import { NewCourseFormComponent } from './components/new-course-form/new-course-
 import { PostsComponent } from './components/posts/posts.component';
 import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';
 import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
+import { AuthGuard } from './providers/auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -34,6 +35,21 @@ const routes: Routes = [
   { path: 'signup2', component: Signup2Component },
   { path: 'userdetail/:id/:username', component: UserdetailComponent},
   { path: '**', component: PageNotFoundComponent }
+  // { path: 'login', component: LoginComponent },
+  // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  // { path: 'about', component: AboutComponent, data: { title: 'My Calendar' }, canActivate: [AuthGuard] },
+  // { path: 'test1', component: HttpWithObservablesComponent, canActivate: [AuthGuard] },
+  // { path: 'test2', component: HttpWithPromisesComponent, canActivate: [AuthGuard] },
+  // { path: 'courses', component: NewCourseFormComponent, canActivate: [AuthGuard] },
+  // { path: 'posts', component: PostsComponent, canActivate: [AuthGuard] },
+  // { path: 'followers/:username', component: GithubProfileComponent },
+  // { path: 'followers', component: GithubFollowersComponent },
+  // { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  // { path: 'email', component: EmailComponent },
+  // { path: 'signup', component: SignupComponent },
+  // { path: 'signup2', component: Signup2Component },
+  // { path: 'userdetail/:id/:username', component: UserdetailComponent},
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

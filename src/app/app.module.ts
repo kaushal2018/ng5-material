@@ -43,6 +43,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { AppErrorHandler } from './common/app-error-handler';
 import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';
 import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
+import { AuthGuard } from './providers/auth-guard.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -104,6 +105,7 @@ export const firebaseConfig = {
   ],
   providers: [
     AuthService,
+    AuthGuard,
     {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent],

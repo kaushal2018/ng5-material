@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
         }
       }
     );
+    // alert(this.isLoggedIn); //this will alert undefined because observable response is pending here
   }
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -53,6 +54,7 @@ export class AppComponent implements OnInit {
         this.titleService.setTitle( 'Ng5Material - ' + this.title );
       }
     });
+    // alert(this.isLoggedIn); //this will alert undefined because observable response is pending here
     // this.loadCourses();
   }
   loadCourses() {

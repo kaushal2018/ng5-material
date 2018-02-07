@@ -9,9 +9,13 @@
     <button mat-button (click)="showComponent('courses')" [style.display]="isLoggedIn ? 'block' : 'none'">Courses</button>
     <button mat-button (click)="showComponent('posts')" [style.display]="isLoggedIn ? 'block' : 'none'">Posts</button>
     <button mat-button (click)="showComponent('contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
-    <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>
+    <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>   
   </mat-toolbar-row>
 </mat-toolbar>
+Name: {{user_displayName}}<br>
+IsLoggedIn?: {{isLoggedIn}}<br>
+Email: {{user_email}}
+<br>
 
 <!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -58,10 +62,6 @@
 <!-- <app-http-with-observables></app-http-with-observables> -->
 <!-- <app-inheritance></app-inheritance> -->
 
-<br>
-Name: {{user_displayName}}<br>
-IsLoggedIn?: {{isLoggedIn}}<br>
-Email: {{user_email}}
 <!-- end -->
 
 <!-- <ul class="nav nav-pills">
