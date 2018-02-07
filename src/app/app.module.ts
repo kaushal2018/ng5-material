@@ -41,6 +41,8 @@ import { InputFormatDirective } from './directives/input-format.directive';
 import { NewCourseFormComponent } from './components/new-course-form/new-course-form.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { AppErrorHandler } from './common/app-error-handler';
+import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';
+import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -74,7 +76,9 @@ export const firebaseConfig = {
     CardComponent,
     InputFormatDirective,
     NewCourseFormComponent,
-    PostsComponent
+    PostsComponent,
+    GithubFollowersComponent,
+    GithubProfileComponent
   ],
   imports: [
     BrowserModule,

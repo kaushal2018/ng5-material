@@ -15,6 +15,8 @@ import {AbcComponent} from './components/abc/abc.component';
 import {InheritanceComponent} from './components/inheritance/inheritance.component';
 import { NewCourseFormComponent } from './components/new-course-form/new-course-form.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';
+import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'test2', component: HttpWithPromisesComponent },
   { path: 'courses', component: NewCourseFormComponent },
   { path: 'posts', component: PostsComponent },
+  { path: 'followers/:username', component: GithubProfileComponent },
+  { path: 'followers', component: GithubFollowersComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'email', component: EmailComponent },
   { path: 'signup', component: SignupComponent },
