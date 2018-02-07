@@ -41,6 +41,11 @@ export class AppComponent implements OnInit {
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
           console.log('Logged in');
+          auth.getIdToken().then(response => {
+            console.log(response);
+            console.log('---------');
+            console.log(auth);
+          });
         }
       }
     );
@@ -111,6 +116,7 @@ export class AppComponent implements OnInit {
   logOut() {
     this.title = 'Login';
     this.authService.logout();
+    //localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
   onFavouriteChange(eventArgs: FavouriteChangedEventArgs) {
