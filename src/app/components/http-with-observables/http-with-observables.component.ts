@@ -14,9 +14,9 @@ import { FormControl } from '@angular/forms';
   providers: [ SearchServiceObservable ]
 })
 export class HttpWithObservablesComponent implements OnInit {
-  private loading: boolean = false;
-  private results: Observable<SearchItem[]>;
-  private searchField: FormControl;
+  loading: boolean = false;
+  results: Observable<SearchItem[]>;
+  searchField: FormControl;
 
   constructor(private itunes: SearchServiceObservable) { }
 

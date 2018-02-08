@@ -26,7 +26,7 @@ export class PostsComponent implements OnInit {
         newPost => {
           post['id'] = newPost.id;
           // use .push() to displat created row at the end, use splice to show at the beginning
-        }, 
+        },
         (error: Response) => {
           this.posts.splice(0, 1);
 
@@ -54,13 +54,13 @@ export class PostsComponent implements OnInit {
         //   let index = this.posts.indexOf(post);
         //   this.posts.splice(index, 1);
         // }
-        null, 
+        null,
         (error: AppError) => {
           this.posts.splice(index, 0, post);
 
           if (error instanceof NotFoundError)
             alert('This post has already been deleted.');
-          else throw error;            
+          else throw error;
         });
   }
 

@@ -3,7 +3,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from './providers/auth.service';
 import { FavouriteChangedEventArgs } from './components/favourite/favourite.component';
 import { Title } from '@angular/platform-browser';
-import { JwtHelper } from 'angular2-jwt'
+import { JwtHelper } from 'angular2-jwt';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,10 @@ import { JwtHelper } from 'angular2-jwt'
   exportAs: 'routerLinkActive'
 })
 export class AppComponent implements OnInit {
+  viewEnvMode = environment.envName;
+  production = environment.production;
+  backgroundColor = environment.navBarBackgroundColor;
+
   task = {
     assignee: {
       name: null
@@ -24,10 +29,10 @@ export class AppComponent implements OnInit {
   post = {
     isFavourite: true
   };
-  private isLoggedIn: Boolean;
-  private user_displayName: String;
-  private user_email: String;
-  title;
+  isLoggedIn: Boolean;
+  user_displayName: String;
+  user_email: String;
+  title: string;
   constructor(private authService: AuthService, private router: Router, private titleService: Title) {
     this.authService.afAuth.authState.subscribe(
       (auth) => {
@@ -41,7 +46,7 @@ export class AppComponent implements OnInit {
           this.isLoggedIn = true;
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
-          console.log('Logged in'); 
+          console.log('Logged in');
         }
       }
     );

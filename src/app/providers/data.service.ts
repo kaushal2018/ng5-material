@@ -19,20 +19,20 @@ export class DataService {
       .map(response => response.json())
       .catch(this.handleError);
   }
-  
+
   create(resource) {
     // return Observable.throw(new AppError());
     return this.http.post(this.url, JSON.stringify(resource))
       .map(response => response.json())
       .catch(this.handleError);
   }
-  
+
   update(resource) {
     return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
       .map(response => response.json())
       .catch(this.handleError);
   }
-  
+
   delete(id) {
     // return Observable.throw(new AppError());
     return this.http.delete(this.url + '/' + id)

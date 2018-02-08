@@ -8,9 +8,9 @@ import { SearchService } from '../../providers/search.service';
   providers: [ SearchService ]
 })
 export class HttpWithPromisesComponent implements OnInit {
-  private loading: boolean = false;
+  loading: boolean = false;
 
-  constructor(private itunes: SearchService) { }
+  constructor(public itunes: SearchService) { }
 
   doSearch(term: string) {
     this.loading = true;

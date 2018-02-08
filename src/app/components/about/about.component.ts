@@ -17,7 +17,5 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.usersObservable = this.getUsers('/users');
-
-    console.log(this.usersObservable);
   }
 }

@@ -44,7 +44,7 @@ export class UserdetailComponent implements OnInit, OnDestroy {
     //     this.page = +params.get('page');
     //     this.order = params.get('order');
     // });
-    
+
     // this.sub = this.route.params.subscribe(params => {
     //   this.id = +params['id']; // (+) converts string 'id' to a number
     //   this.username = params['username'];

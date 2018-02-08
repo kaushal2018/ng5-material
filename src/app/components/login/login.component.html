@@ -4,8 +4,7 @@
     </mat-card-header>
     <hr><br>
     <mat-card-content>
-        <div class="example-button-row">   
-            <span class="error" *ngIf="error">{{ error }}</span>
+        <div class="example-button-row">
             <button (click)="loginFacebook()" mat-raised-button color="primary">Login With Facebook</button><br><br>
             <button (click)="loginGoogle()" mat-raised-button color="warn">Login With Google</button><br><br>
             <button routerLink="/email" mat-raised-button color="accent">Login With Email</button><br><br>

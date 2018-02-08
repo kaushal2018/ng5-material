@@ -16,6 +16,7 @@ import { UserNameValidators } from '../../common/validators/username.validators'
   animations: [moveIn(), fallIn()]
 })
 export class SignupComponent extends UserData implements OnInit {
+  hide = false;
   tempUser: UserModel[];
   signUpForm: FormGroup;
   userid: AbstractControl;

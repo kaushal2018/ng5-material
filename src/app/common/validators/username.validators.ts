@@ -35,5 +35,5 @@ export class UserNameValidators {
     //         const qry = ref.orderByChild('userName').equalTo('kaushal'); return qry;
     //     }).valueChanges();
     // }
-    
+
 }

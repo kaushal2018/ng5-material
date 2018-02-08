@@ -3,7 +3,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { JwtHelper } from 'angular2-jwt'
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -34,11 +34,11 @@ export class AuthService {
     return this.afAuth.idToken
       .subscribe(response => {
         let token = response;
-        
+
         let expirationDate = jwtHelper.getTokenExpirationDate(token);
         let isExpired = jwtHelper.isTokenExpired(token);
-        console.log("expirationDate: " + expirationDate);
-        console.log("isExpired: " + isExpired);
+        console.log('expirationDate: ' + expirationDate);
+        console.log('isExpired: ' + isExpired);
         console.log(token);
       });
   }

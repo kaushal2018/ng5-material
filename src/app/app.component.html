@@ -1,6 +1,12 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Angular 5 {{ title }}</span>
+    <div [ngSwitch]="viewEnvMode">
+        <span *ngSwitchCase="'dev'" [style.color]="backgroundColor">Development Environment-</span>
+        <span *ngSwitchCase="'test'" [style.color]="backgroundColor">Test Environment-</span>
+        <span *ngSwitchCase="'prod'" [style.color]="backgroundColor">Production Environment-</span>
+        <span *ngSwitchDefault>Development Environment-</span>
+    </div>
+    <span>Angular {{ title }}</span>
     <span class="example-spacer"></span>    
     <button mat-button (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
     <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
@@ -12,10 +18,10 @@
     <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>   
   </mat-toolbar-row>
 </mat-toolbar>
-Name: {{user_displayName}}<br>
+<!-- Name: {{user_displayName}}<br>
 IsLoggedIn?: {{isLoggedIn}}<br>
 Email: {{user_email}}
-<br>
+<br> -->
 
 <!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -50,13 +56,16 @@ Email: {{user_email}}
 <router-outlet></router-outlet>
 
 <!-- <app-abc></app-abc> -->
+
 <!-- <app-bootstrap-panel>
   <ng-container>Heading...</ng-container>
   <div class="body">
     <h2>Body</h2>
     <p>Some content here...</p>
   </div>
+  <div></div>
 </app-bootstrap-panel> -->
+
 <!-- <app-http-api></app-http-api> -->
 <!-- <app-http-with-promises></app-http-with-promises> -->
 <!-- <app-http-with-observables></app-http-with-observables> -->
