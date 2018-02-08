@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "default": "ng5-material-b5b34"
+  }
+}
