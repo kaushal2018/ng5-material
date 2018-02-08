@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 // import * as firebase from 'firebase/app';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -101,7 +102,8 @@ export const firebaseConfig = {
     MatProgressBarModule,
     AppRoutingModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    AngularFirestoreModule
   ],
   providers: [
     AuthService,
