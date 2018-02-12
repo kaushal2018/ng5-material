@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { AuthService } from './providers/auth.service';
 import { FavouriteChangedEventArgs } from './components/favourite/favourite.component';
 import { Title } from '@angular/platform-browser';
@@ -33,7 +33,12 @@ export class AppComponent implements OnInit {
   user_displayName: String;
   user_email: String;
   title: string;
-  constructor(private authService: AuthService, private router: Router, private titleService: Title) {
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private titleService: Title,
+    private route: ActivatedRoute
+  ) {
     this.authService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
@@ -46,6 +51,8 @@ export class AppComponent implements OnInit {
           this.isLoggedIn = true;
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
+          let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          this.router.navigate([returnUrl || '']);
           console.log('Logged in');
         }
       }

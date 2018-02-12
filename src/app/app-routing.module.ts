@@ -18,6 +18,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';
 import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
 import { AuthGuard } from './providers/auth-guard.service';
+import { CoursesComponent } from './components/courses/courses.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: { title: 'My Calendar' } },
   { path: 'test1', component: HttpWithObservablesComponent },
   { path: 'test2', component: HttpWithPromisesComponent },
-  { path: 'courses', component: NewCourseFormComponent },
+  { path: 'courses', component: CoursesComponent },
+  // { path: 'courses', component: NewCourseFormComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'followers/:username', component: GithubProfileComponent },
   { path: 'followers', component: GithubFollowersComponent },

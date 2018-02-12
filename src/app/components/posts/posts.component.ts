@@ -25,7 +25,7 @@ export class PostsComponent implements OnInit {
       .subscribe(
         newPost => {
           post['id'] = newPost.id;
-          // use .push() to displat created row at the end, use splice to show at the beginning
+          // use .push() to place created row at the end, use splice to show at the beginning
         },
         (error: Response) => {
           this.posts.splice(0, 1);

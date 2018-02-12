@@ -1,0 +1,17 @@
+<input type="text" (keyup.enter)="add(course)" #course>
+<ul class="list-group">
+  <li *ngFor="let course of courses$ | async" class="list-group-item">
+    <pre>
+      <button (click)="update(course)">Update</button><button (click)="delete(course)">Delete</button>
+      {{ course.$value || course.title }}
+    </pre>
+  </li>
+</ul>
+<!-- <p>{{course$ | async | json}}</p>
+<p>{{author$ | async | json}}</p> -->
+<!-- <button (click)="ngOnDestroy()">Go offline</button> -->
+<!-- <ul *ngIf="author$ | async as author">
+  <li>{{ author.name }}</li>
+  <li>{{ author.students }}</li>
+  <li>{{ author.isPremium }}</li>
+</ul> -->

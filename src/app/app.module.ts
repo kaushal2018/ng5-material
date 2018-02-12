@@ -45,6 +45,8 @@ import { AppErrorHandler } from './common/app-error-handler';
 import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';
 import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
 import { AuthGuard } from './providers/auth-guard.service';
+import { environment } from '../environments/environment';
+import { CoursesComponent } from './components/courses/courses.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -80,13 +82,15 @@ export const firebaseConfig = {
     NewCourseFormComponent,
     PostsComponent,
     GithubFollowersComponent,
-    GithubProfileComponent
+    GithubProfileComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatToolbarModule,

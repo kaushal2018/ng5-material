@@ -4,7 +4,7 @@
     {{course.rating | number:'1.1-1'}}<br>
     {{course.price | currency:'USD':true:'1.1-1'}}<br>
     {{course.releaseDate | date:'fullDate'}}<br>
-    {{text | summary}}
+    {{text | summary:10}}
   </p>
   <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
 </div>
