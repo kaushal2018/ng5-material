@@ -54,6 +54,11 @@ export class AppComponent implements OnInit {
           let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
           this.router.navigate([returnUrl || '']);
           console.log('Logged in');
+          auth.getIdToken().then(response => {
+            console.log(response);
+            console.log('---------');
+            console.log(auth);
+          });
         }
       }
     );
