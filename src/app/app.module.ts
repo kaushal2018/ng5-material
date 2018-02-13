@@ -5,8 +5,9 @@ import { JsonpModule, Jsonp, Response } from '@angular/http';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatInputModule, MatProgressBarModule,
-  MatToolbarModule, MatFormFieldModule, MatButtonModule, MatCardModule, MatMenuModule, MatIconModule } from '@angular/material';
+  MatInputModule, MatProgressBarModule, MatTooltipModule,
+  MatToolbarModule, MatFormFieldModule, MatButtonModule, MatCardModule, MatMenuModule, MatIconModule, MatPaginatorModule
+} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 // For using formControl, you have to import ReactiveFormsModule to your imports array
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import { HttpApiComponent } from './components/http-api/http-api.component';
 import { HttpWithPromisesComponent } from './components/http-with-promises/http-with-promises.component';
 import { HttpWithObservablesComponent } from './components/http-with-observables/http-with-observables.component';
 import { SummaryPipe } from './shared/pipe/summary.pipe';
+import { FilterPipe} from './shared/pipe/filter.pipe';
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { BootstrapPanelComponent } from './components/bootstrap-panel/bootstrap-panel.component';
 import { CardComponent } from './components/card/card.component';
@@ -47,6 +49,9 @@ import { GithubProfileComponent } from './components/githubprofile/githubprofile
 import { AuthGuard } from './providers/auth-guard.service';
 import { environment } from '../environments/environment';
 import { CoursesComponent } from './components/courses/courses.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { DataTableComponent } from './components/data-table/data-table.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -75,6 +80,7 @@ export const firebaseConfig = {
     HttpWithPromisesComponent,
     HttpWithObservablesComponent,
     SummaryPipe,
+    FilterPipe,
     FavouriteComponent,
     BootstrapPanelComponent,
     CardComponent,
@@ -83,14 +89,16 @@ export const firebaseConfig = {
     PostsComponent,
     GithubFollowersComponent,
     GithubProfileComponent,
-    CoursesComponent
+    CoursesComponent,
+    FilterComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    // AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatToolbarModule,
@@ -100,6 +108,8 @@ export const firebaseConfig = {
     MatMenuModule,
     MatIconModule,
     MatInputModule,
+    MatTooltipModule,
+    MatPaginatorModule,
     // Tip: use FormsModule for template-driven, and ReactiveFormsModule for reactive forms.
     FormsModule,
     ReactiveFormsModule,
@@ -107,7 +117,8 @@ export const firebaseConfig = {
     AppRoutingModule,
     HttpModule,
     JsonpModule,
-    // AngularFirestoreModule
+    // AngularFirestoreModule,
+    NgxDatatableModule
   ],
   providers: [
     AuthService,

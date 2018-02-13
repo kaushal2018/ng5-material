@@ -1,5 +1,5 @@
 <br>
-<form #formData='ngForm' (ngSubmit)="loginEmail(formData)">
+<form #formData='ngForm' (ngSubmit)="loginEmail(formData)" novalidate>
     <mat-form-field>
       <input matInput type="text" placeholder="Email" name="email" [formControl]="emailFormControl" required>
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">

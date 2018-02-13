@@ -25,6 +25,9 @@ export class AppComponent implements OnInit {
   canSave = false;
   courses = [];
   lastCourseItemIndex = 0;
+  colSpan = 2;
+  isActive = true;
+  matTooltipPosition = 'after';
   viewMode = 'map';
   post = {
     isFavourite: true
