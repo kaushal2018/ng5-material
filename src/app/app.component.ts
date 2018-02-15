@@ -5,6 +5,9 @@ import { FavouriteChangedEventArgs } from './components/favourite/favourite.comp
 import { Title } from '@angular/platform-browser';
 import { JwtHelper } from 'angular2-jwt';
 import { environment } from '../environments/environment';
+import { NgRedux, select } from 'ng2-redux';
+import { IAppState } from './store';
+import { INCREMENT } from './actions';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +16,12 @@ import { environment } from '../environments/environment';
   exportAs: 'routerLinkActive'
 })
 export class AppComponent implements OnInit {
+
+  @select ('counter') count;
+  // @select (['messaging', 'newMessages']) newMessages;
+  // // messaging.newMessages
+  // @select((s: IAppState) => s.messaging.newMessages) newMessagesCount;
+
   viewEnvMode = environment.envName;
   production = environment.production;
   backgroundColor = environment.navBarBackgroundColor;
@@ -40,7 +49,8 @@ export class AppComponent implements OnInit {
     private authService: AuthService, 
     private router: Router, 
     private titleService: Title,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private ngRedux: NgRedux<IAppState>
   ) {
     this.authService.afAuth.authState.subscribe(
       (auth) => {
@@ -66,6 +76,12 @@ export class AppComponent implements OnInit {
       }
     );
     // alert(this.isLoggedIn); //this will alert undefined because observable response is pending here
+
+    // let subscription = ngRedux.subscribe(() => {
+    //   // console.log(ngRedux.getState());
+    //   let store = ngRedux.getState();
+    //   this.counter = store.counter;
+    // });
   }
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -140,5 +156,10 @@ export class AppComponent implements OnInit {
   onFavouriteChange(eventArgs: FavouriteChangedEventArgs) {
     // console.log('Favourite changed ');
     console.log('Favourite changed : ', eventArgs.newValue, eventArgs.anotherValue);
+  }
+  increment() {
+    // this.counter++;
+    // dispatch an action
+    this.ngRedux.dispatch({ type: INCREMENT });
   }
 }

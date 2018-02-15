@@ -18,6 +18,8 @@
     <button mat-raised-button class="logout" (click)="logOut()" color="accent" [style.display]="isLoggedIn ? 'block' : 'none'">Log Out</button>   
   </mat-toolbar-row>
 </mat-toolbar>
+<router-outlet></router-outlet>
+
 <!-- Name: {{user_displayName}}<br>
 IsLoggedIn?: {{isLoggedIn}}<br>
 Email: {{user_email}}
@@ -52,8 +54,6 @@ Email: {{user_email}}
     <a href="#" class="btn btn-primary">This button</a>
   </div>      
 </app-card> -->
-
-<!-- <router-outlet></router-outlet> -->
 
 <!-- <app-abc></app-abc> -->
 
@@ -146,3 +146,8 @@ Email: {{user_email}}
 [pageSize]="10"
 [pageSizeOptions]="[5, 10, 25, 100]">
 </mat-paginator> -->
+
+<!-- <p>Counter: {{ count | async }}</p>
+<button (click)="increment()">Increment</button> -->
+
+<!-- <app-todo-list></app-todo-list> -->
