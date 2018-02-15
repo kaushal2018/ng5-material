@@ -6,8 +6,6 @@ import { Title } from '@angular/platform-browser';
 import { JwtHelper } from 'angular2-jwt';
 import { environment } from '../environments/environment';
 import { NgRedux, select } from 'ng2-redux';
-import { IAppState } from './store';
-import { INCREMENT } from './actions';
 
 @Component({
   selector: 'app-root',
@@ -49,8 +47,7 @@ export class AppComponent implements OnInit {
     private authService: AuthService, 
     private router: Router, 
     private titleService: Title,
-    private route: ActivatedRoute,
-    private ngRedux: NgRedux<IAppState>
+    private route: ActivatedRoute
   ) {
     this.authService.afAuth.authState.subscribe(
       (auth) => {
@@ -156,10 +153,5 @@ export class AppComponent implements OnInit {
   onFavouriteChange(eventArgs: FavouriteChangedEventArgs) {
     // console.log('Favourite changed ');
     console.log('Favourite changed : ', eventArgs.newValue, eventArgs.anotherValue);
-  }
-  increment() {
-    // this.counter++;
-    // dispatch an action
-    this.ngRedux.dispatch({ type: INCREMENT });
   }
 }
