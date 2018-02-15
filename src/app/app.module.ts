@@ -1,3 +1,4 @@
+import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler, isDevMode } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -21,7 +22,6 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './providers/auth.service';
-// import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -55,6 +55,9 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DataTableComponent } from './components/data-table/data-table.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NgRedux, NgReduxModule } from 'ng2-redux';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -94,7 +97,9 @@ export const firebaseConfig = {
     GithubProfileComponent,
     CoursesComponent,
     FilterComponent,
-    DataTableComponent
+    DataTableComponent,
+    TodoListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +131,7 @@ export const firebaseConfig = {
     JsonpModule,
     // AngularFirestoreModule,
     NgxDatatableModule,
-    // NgReduxModule
+    NgReduxModule
   ],
   providers: [
     AuthService,
@@ -137,8 +142,7 @@ export const firebaseConfig = {
   // schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {
-  // constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
-  //   let enhancers = isDevMode() ? [devTools.enhancer()] : [];
-  //   ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancers);
-  // }
- }
+  constructor(ngRedux: NgRedux<IAppState>) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
+}
