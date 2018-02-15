@@ -1,7 +1,7 @@
 <h6>Create Todo:</h6>
 <form (ngSubmit)="obSubmit()" #todoForm="ngForm">
   <div class="form-row">
-    <div class="col-auto">
+    <div class="form-group">
         <input 
           type="text" 
           class="form-control" 
@@ -11,7 +11,7 @@
           name="description"
           #description="ngModel">
     </div>
-    <div class="col-auto">
+    <div class="form-group">
       <input 
         type="text" 
         class="form-control" 
@@ -21,7 +21,7 @@
         name="responsible"
         #responsible="ngModel">
     </div>
-    <div class="col-auto">
+    <div class="form-group">
       <select 
         class="form-control"
         id="priority"

@@ -1,4 +1,5 @@
 import { ITodo } from './interfaces/todo';
+import { tassign } from 'tassign';
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS } from './actions';
 
 export interface IAppState {
@@ -14,11 +15,12 @@ export const INITIAL_STATE: IAppState = {
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
         case ADD_TODO:
-            action.todo.id = state.todos.length + 1;    
+            action.todo.id = state.todos.length + 1;
             return Object.assign({}, state, {
                 todos: state.todos.concat(Object.assign({}, action.todo)),
                 lastUpdate: new Date()
             })
+        
         
         case TOGGLE_TODO:
             var todo = state.todos.find(t => t.id === action.id);

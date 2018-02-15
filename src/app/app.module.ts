@@ -57,7 +57,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NgRedux, NgReduxModule } from 'ng2-redux';
+import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -142,7 +142,12 @@ export const firebaseConfig = {
   // schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  // constructor(ngRedux: NgRedux<IAppState>) {
+  //   ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  // }
+  constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
+    let enhancers = isDevMode() ? [devTools.enhancer()] : [];
+    ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancers);
   }
+
 }
