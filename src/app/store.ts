@@ -12,14 +12,24 @@ export const INITIAL_STATE: IAppState = {
     lastUpdate: null
 }
 
+function addTodo(state, action) {
+    // console.log(state);
+    action.todo.id = state.todos.length + 1;
+    return Object.assign({}, state, {
+        todos: state.todos.concat(Object.assign({}, action.todo)),
+        lastUpdate: new Date()
+    });
+}
+
+
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
-        case ADD_TODO:
-            action.todo.id = state.todos.length + 1;
-            return Object.assign({}, state, {
-                todos: state.todos.concat(Object.assign({}, action.todo)),
-                lastUpdate: new Date()
-            })
+        case ADD_TODO: return addTodo(state, action);
+            // action.todo.id = state.todos.length + 1;
+            // return Object.assign({}, state, {
+            //     todos: state.todos.concat(Object.assign({}, action.todo)),
+            //     lastUpdate: new Date()
+            // });
         
         
         case TOGGLE_TODO:
@@ -32,19 +42,20 @@ export function rootReducer(state: IAppState, action): IAppState {
                     ...state.todos.slice(index+1)
                 ],
                 lastUpdate: new Date()
-            })
+            });
 
         case REMOVE_TODO:
             return Object.assign({}, state, {
                 todos: state.todos.filter(t => t.id !== action.id),
                 lastUpdate: new Date()
-            })
+            });
 
         case REMOVE_ALL_TODOS:
             return Object.assign({}, state, {
                 todos: [],
                 lastUpdate: new Date()
-            })
+            });
     }
+    console.log(state);
     return state;
 }

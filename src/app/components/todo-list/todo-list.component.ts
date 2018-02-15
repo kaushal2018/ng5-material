@@ -23,9 +23,10 @@ export class TodoListComponent implements OnInit {
   constructor(private ngRedux: NgRedux<IAppState>) { }
 
   ngOnInit() {
+    // console.log(this.model);
   }
 
-  obSubmit() {
+  onSubmit() {
     this.ngRedux.dispatch({type: ADD_TODO, todo: this.model});
   }
 
