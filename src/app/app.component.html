@@ -10,8 +10,10 @@
     <span class="example-spacer"></span>    
     <button mat-button (click)="showComponent('')" [style.display]="isLoggedIn ? 'block' : 'none'">Home</button>
     <button mat-button (click)="showComponent('About')" [style.display]="isLoggedIn ? 'block' : 'none'">About</button>
-    <button mat-button (click)="showComponent('test1')" [style.display]="isLoggedIn ? 'block' : 'none'">Test1</button>
-    <button mat-button (click)="showComponent('test2')" [style.display]="isLoggedIn ? 'block' : 'none'">Test2</button>
+    <!-- <button mat-button (click)="showComponent('test1')" [style.display]="isLoggedIn ? 'block' : 'none'">Test1</button>
+    <button mat-button (click)="showComponent('test2')" [style.display]="isLoggedIn ? 'block' : 'none'">Test2</button> -->
+    <button mat-button (click)="showComponent('todo-list')" [style.display]="isLoggedIn ? 'block' : 'none'">Todos</button>
+    <button mat-button (click)="showComponent('dashboard')" [style.display]="isLoggedIn ? 'block' : 'none'">Dashboard</button>
     <button mat-button (click)="showComponent('courses')" [style.display]="isLoggedIn ? 'block' : 'none'">Courses</button>
     <button mat-button (click)="showComponent('posts')" [style.display]="isLoggedIn ? 'block' : 'none'">Posts</button>
     <button mat-button (click)="showComponent('contact')" [style.display]="isLoggedIn ? 'block' : 'none'">Contact</button>
@@ -149,15 +151,15 @@ Email: {{user_email}}
 <!-- <p>Counter: {{ count | async }}</p>
 <button (click)="increment()">Increment</button> -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">Todos App</h3>
-        <h6 class="card-subtitle mb-2 text-muted">Using Angular & Redux</h6>
-        <app-dashboard></app-dashboard>
-        <app-todo-list></app-todo-list>
-      </div>
+    <div class="card-body">
+      <h3 class="card-title">Todos App</h3>
+      <h6 class="card-subtitle mb-2 text-muted">Using Angular & Redux</h6>
+      <app-dashboard></app-dashboard>
+      <app-todo-list></app-todo-list>
     </div>
   </div>
+</div> -->
 
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

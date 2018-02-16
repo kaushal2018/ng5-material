@@ -74,11 +74,6 @@ export class AppComponent implements OnInit {
     );
     // alert(this.isLoggedIn); //this will alert undefined because observable response is pending here
 
-    // let subscription = ngRedux.subscribe(() => {
-    //   // console.log(ngRedux.getState());
-    //   let store = ngRedux.getState();
-    //   this.counter = store.counter;
-    // });
   }
   ngOnInit() {
     this.router.events.subscribe(event => {

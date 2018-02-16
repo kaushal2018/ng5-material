@@ -1,3 +1,4 @@
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -19,13 +20,16 @@ import { GithubFollowersComponent } from './components/githubfollowers/githubfol
 import { GithubProfileComponent } from './components/githubprofile/githubprofile.component';
 import { AuthGuard } from './providers/auth-guard.service';
 import { CoursesComponent } from './components/courses/courses.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent, data: { title: 'My Calendar' } },
-  { path: 'test1', component: HttpWithObservablesComponent },
-  { path: 'test2', component: HttpWithPromisesComponent },
+  // { path: 'test1', component: HttpWithObservablesComponent },
+  // { path: 'test2', component: HttpWithPromisesComponent },
+  { path: 'todo-list', component: TodoListComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'courses', component: CoursesComponent },
   // { path: 'courses', component: NewCourseFormComponent },
   { path: 'posts', component: PostsComponent },
