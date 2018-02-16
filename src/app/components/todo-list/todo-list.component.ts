@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
 import { IAppState } from '../../store';
@@ -17,24 +18,29 @@ export class TodoListComponent implements OnInit {
     description: "",
     responsible: "",
     priority: "low",
-    isCompleted: false 
+    isCompleted: false
   };
 
-  constructor(private ngRedux: NgRedux<IAppState>) { }
+  constructor(private ngRedux: NgRedux<IAppState>) {
+  }
 
   ngOnInit() {
-    // console.log(this.model);
+    const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
+    console.log('ngOnInit', persistedState);
   }
 
   onSubmit() {
     this.ngRedux.dispatch({type: ADD_TODO, todo: this.model});
+    localStorage.setItem('reduxState', JSON.stringify(this.ngRedux.getState()));
   }
 
   toggleTodo(todo) {
     this.ngRedux.dispatch({ type: TOGGLE_TODO, id: todo.id });
+    localStorage.setItem('reduxState', JSON.stringify(this.ngRedux.getState()));
   }
 
   removeTodo(todo) {
     this.ngRedux.dispatch({type: REMOVE_TODO, id: todo.id });
+    localStorage.setItem('reduxState', JSON.stringify(this.ngRedux.getState()));
   }
 }

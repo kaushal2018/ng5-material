@@ -20,6 +20,6 @@ export class DashboardComponent implements OnInit {
 
   clearTodos() {
     this.ngRedux.dispatch({type: REMOVE_ALL_TODOS});
+    localStorage.setItem('reduxState', JSON.stringify(this.ngRedux.getState()));
   }
-
 }

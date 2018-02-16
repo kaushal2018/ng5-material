@@ -1,5 +1,5 @@
 import { ITodo } from './interfaces/todo';
-import { tassign } from 'tassign';
+// import { tassign } from 'tassign';
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, REMOVE_ALL_TODOS } from './actions';
 
 export interface IAppState {
@@ -20,9 +20,9 @@ function addTodo(state, action) {
     });
 }
 
-
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
+        
         case ADD_TODO: return addTodo(state, action);        
         
         case TOGGLE_TODO:

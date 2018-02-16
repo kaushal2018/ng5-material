@@ -61,6 +61,8 @@ export class AppComponent implements OnInit {
           this.isLoggedIn = true;
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
+          // localStorage.setItem('kaushal', 'kumar');
+          // alert(localStorage.getItem('kaushal'));
           // let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
           // this.router.navigate([returnUrl || '']);
           console.log('Logged in');
@@ -142,7 +144,7 @@ export class AppComponent implements OnInit {
   logOut() {
     this.title = 'Login';
     this.authService.logout();
-    //localStorage.removeItem('token');
+    // localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
   onFavouriteChange(eventArgs: FavouriteChangedEventArgs) {
