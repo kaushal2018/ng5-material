@@ -13,7 +13,6 @@ export const INITIAL_STATE: IAppState = {
 }
 
 function addTodo(state, action) {
-    // console.log(state);
     action.todo.id = state.todos.length + 1;
     return Object.assign({}, state, {
         todos: state.todos.concat(Object.assign({}, action.todo)),
@@ -24,13 +23,7 @@ function addTodo(state, action) {
 
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
-        case ADD_TODO: return addTodo(state, action);
-            // action.todo.id = state.todos.length + 1;
-            // return Object.assign({}, state, {
-            //     todos: state.todos.concat(Object.assign({}, action.todo)),
-            //     lastUpdate: new Date()
-            // });
-        
+        case ADD_TODO: return addTodo(state, action);        
         
         case TOGGLE_TODO:
             var todo = state.todos.find(t => t.id === action.id);
@@ -56,6 +49,5 @@ export function rootReducer(state: IAppState, action): IAppState {
                 lastUpdate: new Date()
             });
     }
-    console.log(state);
     return state;
 }

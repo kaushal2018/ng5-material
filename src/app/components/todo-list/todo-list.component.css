@@ -1,3 +1,13 @@
 .completed { 
-    text-decoration: line-through;
-  }
+  text-decoration: line-through;
+  color: rgba(0,0,0,.87);
+}
+.badge-warning {
+  background-color: #ffc107;
+}
+.badge-danger {
+  background-color: #dc3545;
+}
+.badge-success {
+  background-color: #28a745;
+}
