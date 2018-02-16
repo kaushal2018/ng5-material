@@ -142,12 +142,15 @@ export const firebaseConfig = {
   // schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {
-  // constructor(ngRedux: NgRedux<IAppState>) {
-  //   ngRedux.configureStore(rootReducer, INITIAL_STATE);
-  // }
   constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
+
     let enhancers = isDevMode() ? [devTools.enhancer()] : [];
-    ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancers);
+
+    const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
+    
+    // ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancers);
+    ngRedux.configureStore(rootReducer, persistedState, [], enhancers);
+
   }
 
 }

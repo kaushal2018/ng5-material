@@ -21,12 +21,10 @@ export class TodoListComponent implements OnInit {
     isCompleted: false
   };
 
-  constructor(private ngRedux: NgRedux<IAppState>) {
+  constructor(private ngRedux: NgRedux<IAppState>) {    
   }
 
   ngOnInit() {
-    const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
-    console.log('ngOnInit', persistedState);
   }
 
   onSubmit() {
