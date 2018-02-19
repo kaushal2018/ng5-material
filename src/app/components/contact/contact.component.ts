@@ -17,7 +17,7 @@ export class ContactComponent implements OnInit {
   }
 
   submit(f: any) {
-    console.log(f);
+    console.log('submit', f.valid);
   }
 
 }

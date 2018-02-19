@@ -12,6 +12,7 @@ import { ITodo } from '../../../app/interfaces/todo';
 })
 export class TodoListComponent implements OnInit {
   @select() todos;
+  submitted: boolean = false; // check if the form is submitted
 
   model: ITodo = {
     id: 0,
@@ -27,9 +28,17 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.ngRedux.dispatch({type: ADD_TODO, todo: this.model});
-    localStorage.setItem('reduxState', JSON.stringify(this.ngRedux.getState()));
+  onSubmit(todoForm) {
+    this.submitted = true;
+    if ( todoForm.valid ) {
+      this.ngRedux.dispatch({type: ADD_TODO, todo: this.model});
+      localStorage.setItem('reduxState', JSON.stringify(this.ngRedux.getState()));
+      
+      // reset the form to default value
+      todoForm.reset();
+      todoForm.controls['priority'].setValue('low');
+      this.submitted = false;
+    }
   }
 
   toggleTodo(todo) {

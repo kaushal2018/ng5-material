@@ -16,21 +16,21 @@ export class LoginComponent implements OnInit {
 
   loginGoogle() {
     this.authService.loginWithGoogle().then((data) => {
-      console.log(data);
+      // console.log(data);
       this.router.navigate(['']);
     });
   }
 
   loginFacebook() {
     this.authService.loginWithFacebook().then((data) => {
-      console.log(data);
+      // console.log(data);
       this.router.navigate(['']);
     });
   }
 
   loginGithub() {
     this.authService.githubLogin().then((data) => {
-      console.log(data);
+      // console.log(data);
       this.router.navigate(['']);
     });
   }
