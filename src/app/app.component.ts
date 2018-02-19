@@ -61,11 +61,11 @@ export class AppComponent implements OnInit {
           this.isLoggedIn = true;
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
-          // localStorage.setItem('kaushal', 'kumar');
-          // alert(localStorage.getItem('kaushal'));
+
+          // console.log('Logged in');
+
           // let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
           // this.router.navigate([returnUrl || '']);
-          console.log('Logged in');
           // auth.getIdToken().then(response => {
           //   console.log(response);
           //   console.log('---------');
