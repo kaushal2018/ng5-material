@@ -2,6 +2,7 @@
   text-decoration: line-through;
   color: rgba(0,0,0,.87);
 }
+.badge{cursor: pointer;}
 .badge-warning {
   background-color: #ffc107;
 }
