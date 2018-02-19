@@ -10,6 +10,7 @@ export class ContactComponent implements OnInit {
     {id: 1, name: 'Email'},
     {id: 2, name: 'Phone'}
   ];
+  
   constructor() { }
 
   ngOnInit() {

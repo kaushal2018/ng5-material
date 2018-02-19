@@ -144,8 +144,9 @@ export const firebaseConfig = {
 export class AppModule {
   constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
     let enhancers = isDevMode() ? [devTools.enhancer()] : [];
-    const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};    
-    // ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancers);    
+    const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : INITIAL_STATE;    
+    
+    //ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancers);
     ngRedux.configureStore(rootReducer, persistedState, [], enhancers);
   }
 }

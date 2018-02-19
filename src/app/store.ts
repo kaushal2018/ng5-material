@@ -49,6 +49,5 @@ export function rootReducer(state: IAppState, action): IAppState {
                 lastUpdate: new Date()
             });
     }
-    console.log('rootReducer', state);
     return state;
 }
