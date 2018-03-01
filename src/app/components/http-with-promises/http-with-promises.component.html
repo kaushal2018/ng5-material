@@ -24,7 +24,7 @@
 </ul> -->
 <ul class="list-group">
   <li class="list-group-item"
-      *ngFor="let track of itunes.results">
+      *ngFor="let track of iTunesService.results">
     <img src="{{track.thumbnail}}">
     <a target="_blank"
        href="{{track.link}}">{{ track.name }}

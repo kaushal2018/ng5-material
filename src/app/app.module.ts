@@ -58,6 +58,8 @@ import { DataTableComponent } from './components/data-table/data-table.component
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
+import { NumberComponent } from './components/number/number.component';
+import { NumberParentComponent } from './components/number-parent/number-parent.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCy9HuK8-DkBdZWiJrwPSCscOoWJmBqLQ8',
@@ -99,7 +101,9 @@ export const firebaseConfig = {
     FilterComponent,
     DataTableComponent,
     TodoListComponent,
-    DashboardComponent
+    DashboardComponent,
+    NumberComponent,
+    NumberParentComponent
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
-import {AbcComponent} from './components/abc/abc.component';
-import {InheritanceComponent} from './components/inheritance/inheritance.component';
+import { AbcComponent} from './components/abc/abc.component';
+import { InheritanceComponent} from './components/inheritance/inheritance.component';
 import { NewCourseFormComponent } from './components/new-course-form/new-course-form.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { GithubFollowersComponent } from './components/githubfollowers/githubfollowers.component';

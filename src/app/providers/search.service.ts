@@ -3,7 +3,7 @@ import {HttpModule, Http, URLSearchParams, Headers, RequestOptions} from '@angul
 import { SearchItem } from '../shared/models/search.model';
 
 @Injectable()
-export class SearchService {
+export class SearchServicePromise {
     apiRoot: string = 'https://itunes.apple.com/search';
     results: SearchItem[];
     promise;

@@ -18,15 +18,15 @@ export class HttpWithObservablesComponent implements OnInit {
   results: Observable<SearchItem[]>;
   searchField: FormControl;
 
-  constructor(private itunes: SearchServiceObservable) { }
+  constructor(private iTunesService: SearchServiceObservable) { }
 
   ngOnInit() {
     this.searchField = new FormControl();
     this.results = this.searchField.valueChanges
-        .debounceTime(400)
-        .distinctUntilChanged()
-        .do(_ => this.loading = true)
-        .switchMap(term => this.itunes.search(term))
-        .do(_ => this.loading = false);
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .do(_ => this.loading = true)
+      .switchMap(term => this.iTunesService.search(term))
+      .do(_ => this.loading = false);
   }
 }
