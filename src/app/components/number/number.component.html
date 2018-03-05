@@ -1,5 +1,5 @@
 <p>
-  {{ message }}
+  Counter: <span appInputFormat *ngIf="count != 0">{{ count }}</span>
   <br>
-  Stop watch count: {{ counter }}
+  Stop watch count: <span appInputFormat *ngIf="counter != 0">{{ counter }}</span>
 </p>

@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NumberComponent implements OnInit {
 
-  message:string ='';
   count:number = 0;
   
 	shouldRun:boolean = false;
@@ -17,11 +16,9 @@ export class NumberComponent implements OnInit {
 
 	increaseByOne() {
     this.count = this.count + 1;
-    this.message = "Counter: " + this.count;
 	}
 	decreaseByOne() {
     this.count = this.count - 1;
-    this.message = "Counter: " + this.count;
   }
 	start() {
     this.shouldRun = true;
