@@ -20,16 +20,18 @@ export class Signup2Component implements OnInit {
   //  this.userdetails =  aservice.resetuserModel(this.user);
   //  console.log(this.userdetails);
   // }
-  user = [{
-    userid: null,
-    password: '',
-    username: '',
-    email: '',
-    phone: {
-      landline: '',
-      mobile: ''
+  user = [
+    {
+      userid: null,
+      password: '',
+      username: '',
+      email: '',
+      phone: {
+        landline: '',
+        mobile: ''
+      }
     }
-  }];
+  ];
   constructor() {
     // this.user = {
     //   userid: null,
@@ -45,38 +47,23 @@ export class Signup2Component implements OnInit {
 
   addUser(formData: any): void {
     if (formData.valid) {
-      this.user = [{
-        userid: formData.value.userid,
-        password: formData.value.password,
-        username: formData.value.username,
-        email: formData.value.email,
-        phone: {
-          landline: formData.value.phone.landline,
-          mobile: formData.value.phone.mobile
+      this.user = [
+        {
+          userid: formData.value.userid,
+          password: formData.value.password,
+          username: formData.value.username,
+          email: formData.value.email,
+          phone: {
+            landline: formData.value.phone.landline,
+            mobile: formData.value.phone.mobile
+          }
         }
-      }];
+      ];
       console.log(this.user);
     }
   }
 
-  // addUser(formData: any): void {
-  //   if (formData.valid) {
-  //     this.tempUser = [{
-  //       userid: formData.value.userid,
-  //       password: formData.value.password,
-  //       username: formData.value.username,
-  //       email: formData.value.email,
-  //       phone: {
-  //         landline: formData.value.phone.landline,
-  //         mobile: formData.value.phone.mobile
-  //       }
-  //     }];
-  //     console.log(this.user);
-  //   }
-  // }
-
   ngOnInit() {
     console.log(this.user);
   }
-
 }
